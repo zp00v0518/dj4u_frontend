@@ -1,11 +1,15 @@
 <template>
-  
+  <main class="main">
+    <HeaderApp />
+  </main>
 </template>
 
-<script>
-
+<script setup lang="ts">
+import HeaderApp from "@/components/organism/HeaderApp.vue";
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.main {
+  padding: 20px 40px;
+}
 </style>

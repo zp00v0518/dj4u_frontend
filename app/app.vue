@@ -1,6 +1,5 @@
 <template>
   <NuxtPage />
-  dfsdf
 </template>
 
 <script setup lang="ts">

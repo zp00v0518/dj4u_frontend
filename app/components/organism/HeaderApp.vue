@@ -2,14 +2,14 @@
   <header class="header">
     <nav class="nav-links">
       <NuxtLink to="/account">My account</NuxtLink>
-      <NuxtLink to="/about">About</NuxtLink>
-      <NuxtLink to="/pricing">Pricing</NuxtLink>
-      <NuxtLink to="/contact">Contact</NuxtLink>
-    </nav>
 
-    <div class="header-actions">
-      <button class="btn-primary">Try for free</button>
-    </div>
+      <div class="nav-links__menu">
+        <NuxtLink to="/about">About</NuxtLink>
+        <NuxtLink to="/pricing">Pricing</NuxtLink>
+        <NuxtLink to="/contact">Contact</NuxtLink>
+      </div>
+      <span class="nav-links__free">Try for free</span>
+    </nav>
   </header>
 </template>
 
@@ -21,17 +21,30 @@
   border-radius: var(--radius-main);
   background: var(--bg-secondary-color);
   backdrop-filter: blur(5px);
-  width: fit-content;
-  display: flex;
-  justify-content: space-between;
+  max-width: 719px;
+  margin: 0 auto;
 
   .nav-links {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+
     a {
       color: var(--txt-primary-color);
       text-decoration: none;
+      font-weight: 400;
       &:visited {
         color: inherit;
       }
+    }
+
+    &__menu {
+      display: flex;
+      gap: 44px;
+    }
+
+    &__free {
+      color: var(--txt-accent-color);
     }
   }
 }

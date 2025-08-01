@@ -51,7 +51,14 @@ const imgSizes = {
   position: relative;
 
   .image {
+    width: 47%;
+    aspect-ratio: 543/362;
+    object-fit: contain;
+    height: fit-content;
+
     &:last-of-type {
+      width: 43%;
+      aspect-ratio: 494.463/369.391;
       margin-right: var(--padding-content);
       margin-top: auto;
     }

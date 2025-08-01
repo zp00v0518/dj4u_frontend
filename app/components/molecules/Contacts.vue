@@ -1,7 +1,7 @@
 <template>
   <section class="contact-section">
     <div class="contact-info">
-      <div class="question-text text-muted">
+      <div class="question-text">
         Still have questions?
         <br />
         Contact us
@@ -11,55 +11,37 @@
         <span class="email">dj4u_support@gmail.com</span>
       </div>
     </div>
-    <div class="slogan">
-      <h2 class="slogan-text">FROM TRACKS TO ATMOSPHERE — INSTANTLY.</h2>
-    </div>
+    <h2 class="slogan-text">FROM TRACKS TO ATMOSPHERE — INSTANTLY.</h2>
   </section>
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/styles/abstracts/_variables.scss" as *;
-
 .contact-section {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 4rem 0;
-  margin-top: 4rem;
-  border-top: 1px solid var(--border-color);
+  margin-bottom: 36px;
 }
 
 .contact-info {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 53px;
 }
 
 .question-text {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-weight: 500;
 }
 
 .details {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  font-family: "Martian Mono", monospace;
-  color: var(--txt-primary-color);
-  font-weight: bold;
+  gap: 3px;
 }
 
 .slogan-text {
   font-family: "Martian Mono", monospace;
-  font-size: 1.5rem;
-  line-height: 1.2;
-}
-
-@media (max-width: 768px) {
-  .contact-section {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2rem;
-  }
+  font-size: rem(30px);
+  margin: 0;
 }
 </style>

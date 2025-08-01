@@ -44,7 +44,7 @@ const steps = [
   &__title {
     text-align: center;
     position: relative;
-    font-family: "Martian Mono";
+    font-family: "Martian Mono", monospace;
     font-size: rem(30px);
     font-weight: 700;
     text-transform: uppercase;

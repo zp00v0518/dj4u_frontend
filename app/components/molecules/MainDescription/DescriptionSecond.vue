@@ -88,7 +88,7 @@ const plans = [
       margin-bottom: max(20px, 6.2%);
 
       &__title {
-        font-family: "Martian Mono";
+        font-family: "Martian Mono", monospace;
         font-size: rem(30px);
         font-weight: 700;
         text-transform: uppercase;

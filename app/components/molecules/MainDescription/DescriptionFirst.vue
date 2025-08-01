@@ -58,7 +58,7 @@ const whyList = [
     margin-bottom: 358px;
 
     &__title {
-      font-family: "Martian Mono";
+      font-family: "Martian Mono", monospace;
       font-size: rem(53.118px);
       font-weight: 700;
       text-transform: uppercase;

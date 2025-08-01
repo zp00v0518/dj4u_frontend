@@ -74,7 +74,7 @@
 
     &--large {
       font-size: rem(60px);
-      font-family: "Martian Mono";
+      font-family: "Martian Mono", monospace;
       text-transform: uppercase;
       font-weight: 700;
 

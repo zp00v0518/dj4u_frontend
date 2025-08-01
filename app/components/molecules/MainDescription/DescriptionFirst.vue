@@ -13,6 +13,8 @@
         <div class="content__item__label">{{ why.label }}</div>
         <div class="content__item__description">{{ why.description }}</div>
       </div>
+
+      <atomic-button label="Choose your plan" type="grey" />
     </div>
   </div>
 </template>
@@ -75,12 +77,14 @@ const whyList = [
   }
 
   .content {
+    --gap: 40px;
+
     margin: 0 auto;
     width: fit-content;
     display: flex;
     flex-direction: column;
-    align-content: center;
-    gap: 40px;
+    align-items: center;
+    gap: var(--gap);
 
     &__item {
       text-align: center;
@@ -95,6 +99,11 @@ const whyList = [
       &__description {
         color: var(--txt-secondary-color);
       }
+    }
+
+    .app-btn {
+      margin-top: calc(75px - var(--gap));
+      --btn-width: min(260px, 80%);
     }
   }
 }

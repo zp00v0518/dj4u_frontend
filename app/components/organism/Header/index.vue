@@ -6,9 +6,9 @@
       <div class="nav-links__menu">
         <NuxtLink to="/about">About</NuxtLink>
         <NuxtLink to="/pricing">Pricing</NuxtLink>
-        <NuxtLink to="/contact">Contact</NuxtLink>
+        <NuxtLink to="/#contacts">Contact</NuxtLink>
       </div>
-      <span class="nav-links__free">Try for free</span>
+      <NuxtLink class="nav-links__free" to="/#try-free">Try for free</NuxtLink>
     </nav>
   </header>
 </template>
@@ -25,29 +25,30 @@
   margin: 0 auto;
   margin-bottom: 50px;
   border-radius: 40px;
+}
 
-  .nav-links {
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+
+  a {
+    color: var(--txt-primary-color);
+    text-decoration: none;
+    font-weight: 400;
+
+    &:visited {
+      color: inherit;
+    }
+  }
+
+  &__menu {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: nowrap;
+    gap: 44px;
+  }
 
-    a {
-      color: var(--txt-primary-color);
-      text-decoration: none;
-      font-weight: 400;
-      &:visited {
-        color: inherit;
-      }
-    }
-
-    &__menu {
-      display: flex;
-      gap: 44px;
-    }
-
-    &__free {
-      color: var(--txt-accent-color);
-    }
+  a.nav-links__free {
+    color: var(--txt-accent-color);
   }
 }
 </style>

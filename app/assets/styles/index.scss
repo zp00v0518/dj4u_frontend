@@ -5,6 +5,7 @@
   --bg-color: #131313;
   --bg-secondary-color: #ffffff1a;
   --bg-active-color: #ffffff;
+
   --txt-primary-color: #ffffff;
   --txt-secondary-color: #a6a6a6;
   --txt-accent-color: #ffcc00;
@@ -12,6 +13,23 @@
   --radius-main: 40px;
 }
 
+::-webkit-scrollbar {
+  width: 4px;
+  background-color: var(--bg-color);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--bg-secondary-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--bg-secondary-color);
+  border-radius: 5px;
+
+  &:hover {
+    background-color: var(--bg-active-color);
+  }
+}
 
 html {
   font-size: 20px;

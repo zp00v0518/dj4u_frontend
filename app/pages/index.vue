@@ -4,6 +4,7 @@
     <molecules-main-screen />
     <molecules-how-it-works />
     <molecules-main-description />
+    <organism-footer />
   </main>
 </template>
 

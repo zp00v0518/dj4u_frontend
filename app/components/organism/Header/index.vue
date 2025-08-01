@@ -24,6 +24,7 @@
   max-width: 719px;
   margin: 0 auto;
   margin-bottom: 50px;
+  border-radius: 40px;
 
   .nav-links {
     display: flex;

@@ -7,7 +7,7 @@ const { resolve } = createResolver(dirname(fileURLToPath(import.meta.url)));
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@pinia/nuxt", "@nuxt/eslint"],
+  modules: ["@pinia/nuxt", "@nuxt/eslint", "@nuxt/image"],
   css: [
     "@/assets/styles/index.scss",
     // "@/node_modules/vue-final-modal/dist/style.css",
@@ -16,29 +16,32 @@ export default defineNuxtConfig({
   alias: {
     "@": resolve("./app"),
   },
-    app: {
+  app: {
     head: {
-      title: 'DJ4U',
+      title: "DJ4U",
       meta: [
-        { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'format-detection', content: 'telephone=no' }
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "format-detection", content: "telephone=no" },
       ],
       link: [
         {
-          rel: 'preconnect',
-          href: 'https://fonts.googleapis.com'
+          rel: "preconnect",
+          href: "https://fonts.googleapis.com",
         },
         {
-          rel: 'preconnect',
-          href: 'https://fonts.gstatic.com',
-          crossorigin: ''
+          rel: "preconnect",
+          href: "https://fonts.gstatic.com",
+          crossorigin: "",
         },
         {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Martian+Mono&family=Roboto:wght@400;700&family=Rock+Salt&display=swap'
-        }
-      ]
-    }
-  }
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Martian+Mono&family=Roboto:wght@400;700&family=Rock+Salt&display=swap",
+        },
+      ],
+    },
+  },
+  // image: {
+  //   dir: "/img",
+  // },
 });

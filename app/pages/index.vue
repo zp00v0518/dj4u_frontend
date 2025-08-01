@@ -1,6 +1,7 @@
 <template>
   <main class="main">
     <organism-header />
+    <molecules-main-screen />
   </main>
 </template>
 

@@ -51,6 +51,7 @@ const imgSizes = {
   justify-content: space-between;
   gap: 105px;
   position: relative;
+  margin-bottom: 165px;
 
   .image {
     width: 45.21%;

@@ -23,11 +23,13 @@
     <div class="txt-content">
       <div class="txt-content--large">Turn Any Playlist</div>
       <div class="txt-content--large">Into</div>
-      <span class="txt-content--large">a Seamless DJ Mix </span>
-      <span
-        >Upload your tracks. Get back one continuous, professionally mixed audio
-        file — ready to play in your bar, event, or business.
-      </span>
+      <div class="txt-content__bottom">
+        <span class="description"
+          >Upload your tracks. Get back one continuous, professionally mixed
+          audio file — ready to play in your bar, event, or business.
+        </span>
+        <span class="txt-content--large">a Seamless DJ Mix </span>
+      </div>
     </div>
   </div>
 </template>
@@ -51,13 +53,13 @@ const imgSizes = {
   position: relative;
 
   .image {
-    width: 47%;
+    width: 45.21%;
     aspect-ratio: 543/362;
     object-fit: contain;
     height: fit-content;
 
     &:last-of-type {
-      width: 43%;
+      width: 41.2%;
       aspect-ratio: 494.463/369.391;
       margin-right: var(--padding-content);
       margin-top: auto;
@@ -68,9 +70,34 @@ const imgSizes = {
     display: flex;
     flex-direction: column;
     position: absolute;
+    text-align: right;
+    width: 100%;
+    height: 100%;
 
     &--large {
-      font-size: rem(30px);
+      font-size: rem(60px);
+      font-family: "Martian Mono";
+      text-transform: uppercase;
+      font-weight: 700;
+
+      &:first-child {
+        margin-right: var(--padding-content);
+        margin-bottom: 81px;
+        margin-top: 77px;
+      }
+    }
+
+    &__bottom {
+      margin-top: auto;
+      display: flex;
+      align-items: end;
+      gap: 38px;
+    }
+    .description {
+      width: fit-content;
+      max-width: 288px;
+      display: block;
+      text-align: start;
     }
   }
 }

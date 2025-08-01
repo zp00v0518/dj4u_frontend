@@ -23,6 +23,7 @@
   backdrop-filter: blur(5px);
   max-width: 719px;
   margin: 0 auto;
+  margin-bottom: 50px;
 
   .nav-links {
     display: flex;

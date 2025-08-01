@@ -1,11 +1,10 @@
 <template>
   <main class="main">
-    <HeaderApp />
+    <organism-header />
   </main>
 </template>
 
 <script setup lang="ts">
-import HeaderApp from "@/components/organism/HeaderApp.vue";
 </script>
 
 <style lang="scss" scoped>

@@ -4,7 +4,7 @@
       <div class="header__title">Perfect Music Flow</div>
       <div class="header__title">
         Without a DJ
-        <span class="header__subtitle">(Why use us)</span>
+        <span class="header__subtitle txt-dance">(Why use us)</span>
       </div>
     </div>
 
@@ -50,6 +50,7 @@ const whyList = [
   background-size: 41%;
   background-position: center 31px;
   height: fit-content;
+  margin-bottom: 75px;
 
   .header {
     display: flex;
@@ -65,10 +66,6 @@ const whyList = [
     }
 
     &__subtitle {
-      color: var(--txt-accent-color);
-      font-family: "Rock Salt";
-      font-size: rem(20px);
-      font-weight: 400;
       position: absolute;
       left: 0;
       bottom: 0;

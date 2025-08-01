@@ -12,6 +12,6 @@
 
 <style lang="scss" scoped>
 .main {
-  padding: 20px 40px;
+  padding: 20px var(--padding-side-main);
 }
 </style>

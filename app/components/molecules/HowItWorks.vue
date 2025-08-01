@@ -1,7 +1,7 @@
 <template>
   <div class="hiw">
     <h2 class="hiw__title">
-      How it works <span class="hiw__subtitle">(Steps)</span>
+      How it works <span class="hiw__subtitle txt-dance">(Steps)</span>
     </h2>
 
     <div class="steps">
@@ -53,13 +53,9 @@ const steps = [
 
   &__subtitle {
     position: absolute;
-    color: var(--txt-accent-color);
-    font-size: rem(20px);
-    font-family: "Rock Salt";
     left: 0;
     top: 12px;
     text-transform: capitalize;
-    font-weight: normal;
   }
 
   .steps {

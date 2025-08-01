@@ -8,6 +8,8 @@
   --txt-accent-color: #ffcc00;
 
   --border-color: #ffffff99;
+
+  --padding-side-main: 40px;
 }
 
 ::-webkit-scrollbar {
@@ -37,4 +39,13 @@ body {
   padding: 0;
   background-color: var(--bg-color);
   color: var(--txt-primary-color);
+}
+
+.txt-dance {
+  color: var(--txt-accent-color);
+  font-family: "Rock Salt";
+  font-size: rem(20px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }

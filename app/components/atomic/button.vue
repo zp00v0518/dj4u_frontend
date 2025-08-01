@@ -54,6 +54,16 @@ const props = withDefaults(
     border: none;
   }
 
+  &.white {
+    background: var(--bg-active-color);
+    color: var(--bg-color);
+
+    &:hover {
+      background: var(--bg-color);
+      color: var(--bg-active-color);
+    }
+  }
+
   &:hover {
     background: var(--bg-active-color);
     color: var(--bg-color);

@@ -2,7 +2,7 @@
   <main class="main">
     <organism-header />
     <molecules-main-screen />
-    <organism-how-it-works />
+    <molecules-how-it-works />
   </main>
 </template>
 

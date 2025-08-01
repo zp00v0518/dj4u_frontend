@@ -3,6 +3,7 @@
     <organism-header />
     <molecules-main-screen />
     <molecules-how-it-works />
+    <molecules-main-description />
   </main>
 </template>
 

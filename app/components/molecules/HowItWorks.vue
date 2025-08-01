@@ -39,6 +39,8 @@ const steps = [
 
 <style lang="scss" scoped>
 .hiw {
+  margin-bottom: 124px;
+  
   &__title {
     text-align: center;
     position: relative;

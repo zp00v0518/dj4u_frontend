@@ -35,10 +35,7 @@
 </template>
 
 <script setup lang="ts">
-const imgSizes = {
-  width: 543,
-  height: 362,
-};
+
 </script>
 
 <style lang="scss" scoped>

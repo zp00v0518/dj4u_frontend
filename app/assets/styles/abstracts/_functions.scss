@@ -1,0 +1,8 @@
+@use "@/assets/styles/abstracts/_variables" as *;
+@use "sass:math";
+@use "sass:meta";
+@use "sass:map";
+
+@function rem($size, $base: $base-font-size) {
+ @return math.div($size, $base) * 1rem;
+}

@@ -13,7 +13,7 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .login {
-    color: red;
+  color: red;
 }
 
 </style>

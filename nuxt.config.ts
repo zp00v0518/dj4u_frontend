@@ -41,7 +41,13 @@ export default defineNuxtConfig({
       ],
     },
   },
-  // image: {
-  //   dir: "/img",
-  // },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "@/assets/styles/abstracts/_functions" as *;'
+        }
+      }
+    }
+  }
 });

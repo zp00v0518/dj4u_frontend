@@ -1,4 +1,17 @@
-@use "@/assets/styles/abstracts/_variables";
+// @use "@/assets/styles/abstracts/_variables";
+// @use "@/assets/styles/abstracts/_functions";
+
+:root {
+  --bg-color: #131313;
+  --bg-secondary-color: #ffffff1a;
+  --bg-active-color: #ffffff;
+  --txt-primary-color: #ffffff;
+  --txt-secondary-color: #a6a6a6;
+  --txt-accent-color: #ffcc00;
+
+  --radius-main: 40px;
+}
+
 
 html {
   font-size: 20px;

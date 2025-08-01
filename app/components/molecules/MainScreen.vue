@@ -21,9 +21,9 @@
       :placeholder="[50, 25, 100, 1]"
     />
     <div class="txt-content">
-      <div>Turn Any Playlist</div>
-      <div>Into</div>
-      <span>a Seamless DJ Mix </span>
+      <div class="txt-content--large">Turn Any Playlist</div>
+      <div class="txt-content--large">Into</div>
+      <span class="txt-content--large">a Seamless DJ Mix </span>
       <span
         >Upload your tracks. Get back one continuous, professionally mixed audio
         file — ready to play in your bar, event, or business.
@@ -68,6 +68,10 @@ const imgSizes = {
     display: flex;
     flex-direction: column;
     position: absolute;
+
+    &--large {
+      font-size: rem(30px);
+    }
   }
 }
 </style>

@@ -4,8 +4,8 @@
       <NuxtLink to="/account">My account</NuxtLink>
 
       <div class="nav-links__menu">
-        <NuxtLink to="/about">About</NuxtLink>
-        <NuxtLink to="/pricing">Pricing</NuxtLink>
+        <NuxtLink to="/#about">About</NuxtLink>
+        <NuxtLink to="/#pricing">Pricing</NuxtLink>
         <NuxtLink to="/#contacts">Contact</NuxtLink>
       </div>
       <NuxtLink class="nav-links__free" to="/#try-free">Try for free</NuxtLink>

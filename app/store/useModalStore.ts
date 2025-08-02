@@ -3,7 +3,7 @@ import { useModal, type UseModalReturnType } from "vue-final-modal";
 import { defineAsyncComponent } from "vue";
 
 interface IModals extends Record<string, Maybe<UseModalReturnType<any>>> {
-  login: Maybe<UseModalReturnType<any>>;
+  AuthForm: Maybe<UseModalReturnType<any>>;
   "forgot-pass": Maybe<UseModalReturnType<any>>;
   "reset-pass": Maybe<UseModalReturnType<any>>;
   "sign-up": Maybe<UseModalReturnType<any>>;
@@ -19,7 +19,7 @@ export default defineStore("modalStore", {
   state: (): IModalStoreState => {
     return {
       modals: {
-        login: undefined,
+        AuthForm: undefined,
         "forgot-pass": undefined,
         "reset-pass": undefined,
         "sign-up": undefined,
@@ -34,12 +34,8 @@ export default defineStore("modalStore", {
       modalName: string,
       attrs: Record<string, any> = {},
     ): Promise<void> {
-      // this.openingModals.push(modalName);
-      console.log(
-        `../../../components/modals/${
-          this.sameComponent[modalName] || modalName
-        }.vue`,
-      );
+      this.openingModals.push(modalName);
+
       this.modals[modalName] = undefined;
       if (!this.modals[modalName]) {
         const modalComponent = defineAsyncComponent(
@@ -50,7 +46,6 @@ export default defineStore("modalStore", {
               }.vue`
             ),
         );
-        console.log(modalComponent);
         this.modals[modalName] = useModal({
           component: modalComponent,
           attrs: {
@@ -62,12 +57,10 @@ export default defineStore("modalStore", {
           attrs: Object.assign({}, this.modals[modalName].options.attrs, attrs),
         });
       }
-      console.log(this.modals[modalName]);
       this.modals[modalName].open();
-      console.log(1111);
-      // this.openingModals = this.openingModals.filter(
-      //   (item) => item !== modalName,
-      // );
+      this.openingModals = this.openingModals.filter(
+        (item) => item !== modalName,
+      );
     },
 
     async closeModal(modalName: string): Promise<void> {

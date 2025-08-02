@@ -35,7 +35,7 @@ html {
   scroll-behavior: smooth;
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 body {
@@ -53,4 +53,17 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px var(--bg-color) inset !important;
+  -webkit-text-fill-color: var(--txt-primary-color) !important;
+  caret-color: var(--txt-primary-color) !important;
+}
+
+input {
+  transition: background-color 0.3s ease, border-bottom-color 0.3s ease;
 }

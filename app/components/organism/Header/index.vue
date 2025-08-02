@@ -21,7 +21,7 @@ const router = useRouter();
 const { openModal } = useModalStore();
 
 async function goToAProfile() {
-  await openModal('login')
+  await openModal('AuthForm')
   // await router.push("/account");
 }
 </script>

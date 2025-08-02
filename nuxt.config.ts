@@ -10,6 +10,7 @@ export default defineNuxtConfig({
   modules: ["@pinia/nuxt", "@nuxt/eslint", "@nuxt/image"],
   css: [
     "@/assets/styles/index.scss",
+    'vue-final-modal/style.css'
     // "@/node_modules/vue-final-modal/dist/style.css",
     // "@/node_modules/vue-skeletor/dist/vue-skeletor.css",
   ],

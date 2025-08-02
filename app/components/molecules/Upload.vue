@@ -1,7 +1,7 @@
 <template>
   <section class="upload-section">
     <div class="upload-card">
-      <div v-if="currentState === 'initial'">
+      <div v-if="currentState === 'initial'" class="upload-card__body">
         <h3 class="card-title">Upload Your Tracks</h3>
         <div class="drag-and-drop-area">
           <p class="drag-and-drop-text">
@@ -11,7 +11,7 @@
         </div>
       </div>
 
-      <div v-if="currentState === 'uploaded'">
+      <div v-if="currentState === 'uploaded'" class="upload-card__body">
         <h3 class="card-title">Upload Your Tracks</h3>
         <p class="file-count">{{ uploadedFiles.length }} files selected</p>
         <ul class="file-list">
@@ -43,14 +43,14 @@
         </ul>
       </div>
 
-      <div v-if="currentState === 'mixing'">
+      <div v-if="currentState === 'mixing'" class="upload-card__body">
         <h3 class="card-title">Mixing in progress...</h3>
         <div class="mixing-status">
           <p class="mixing-text">Analyzing tracks and creating your mix...</p>
         </div>
       </div>
 
-      <div v-if="currentState === 'ready'">
+      <div v-if="currentState === 'ready'" class="upload-card__body">
         <h3 class="card-title">Your mix is ready!</h3>
         <div class="ready-status">
           <p class="ready-text">Enjoy your seamless music flow!</p>
@@ -74,10 +74,12 @@
 </template>
 
 <script setup lang="ts">
-const currentState = ref("uploaded");
+const currentState = ref("mixing");
 const uploadedFiles = ref([
   { name: "Midnight_Rhythm.mp3" },
   { name: "Chillwave_Sunset.wav" },
+  { name: "DeepGroove_Bassline.mp3" },
+  { name: "DeepGroove_Bassline.mp3" },
   { name: "DeepGroove_Bassline.mp3" },
   { name: "DeepGroove_Bassline.mp3" },
   { name: "DeepGroove_Bassline.mp3" },
@@ -93,6 +95,7 @@ const uploadedFiles = ref([
   border-radius: 41.668px;
   border: 1.042px solid var(--border-color);
   backdrop-filter: blur(5px);
+  min-height: 325px;
 }
 
 .upload-card {
@@ -100,6 +103,14 @@ const uploadedFiles = ref([
   border-radius: 20px;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+
+  &__body {
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .card-title {
@@ -116,6 +127,8 @@ const uploadedFiles = ref([
   align-items: center;
   text-align: center;
   border-radius: 10px;
+  flex-grow: 4;
+  color: var(--txt-secondary-color);
 }
 
 .drag-and-drop-text {
@@ -132,18 +145,19 @@ const uploadedFiles = ref([
 
 .file-list {
   list-style: none;
+  flex-grow: 2;
   padding: 0;
   margin: 0;
   margin-bottom: 1rem;
-  max-height: 70px;
   overflow: auto;
+  max-height: 100px;
 }
 
 .file-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2px;
+  margin-bottom: 6px;
   
   &:last-child {
     border-bottom: none;

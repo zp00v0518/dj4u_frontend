@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-export const useProfileStore = defineStore("useProfileStore", {
+export default defineStore("useProfileStore", {
   state: () => ({
     isLogin: false,
   }),

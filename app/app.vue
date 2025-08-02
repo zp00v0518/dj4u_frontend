@@ -1,9 +1,11 @@
 <template>
   <NuxtPage />
+  <ModalsContainer />
 </template>
 
 <script setup lang="ts">
-import { useProfileStore } from "./store/useProfileStore";
+import useProfileStore from "./store/useProfileStore";
+import { ModalsContainer } from "vue-final-modal";
 const profileStore = useProfileStore();
 
 onMounted(() => {
@@ -11,6 +13,4 @@ onMounted(() => {
 });
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

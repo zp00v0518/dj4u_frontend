@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <nav class="nav-links">
-      <NuxtLink to="/account">My account</NuxtLink>
+      <NuxtLink @click="goToAProfile">My account</NuxtLink>
 
       <div class="nav-links__menu">
         <NuxtLink to="/#about">About</NuxtLink>
@@ -13,7 +13,18 @@
   </header>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import useModalStore from "@/store/useModalStore";
+
+const router = useRouter();
+
+const { openModal } = useModalStore();
+
+async function goToAProfile() {
+  await openModal('login')
+  // await router.push("/account");
+}
+</script>
 
 <style lang="scss" scoped>
 .header {
@@ -36,6 +47,7 @@
     color: var(--txt-primary-color);
     text-decoration: none;
     font-weight: 400;
+    cursor: pointer;
 
     &:visited {
       color: inherit;

@@ -74,7 +74,7 @@
 </template>
 
 <script setup lang="ts">
-const currentState = ref("mixing");
+const currentState = ref("initial");
 const uploadedFiles = ref([
   { name: "Midnight_Rhythm.mp3" },
   { name: "Chillwave_Sunset.wav" },

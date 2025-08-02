@@ -13,7 +13,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 3px;
   background-color: var(--bg-color);
 }
 
@@ -22,7 +22,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--bg-secondary-color);
+  background-color: var(--bg-active-color);
   border-radius: 5px;
 
   &:hover {

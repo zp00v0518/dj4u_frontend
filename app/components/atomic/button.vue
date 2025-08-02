@@ -43,6 +43,11 @@ const props = withDefaults(
   &:disabled {
     color: var(--txt-secondary-color);
     cursor: not-allowed;
+
+    &:hover {
+      background: inherit;
+      color: var(--txt-secondary-color);
+    }
   }
 
   &.full-width {

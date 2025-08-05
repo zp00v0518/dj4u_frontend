@@ -1,5 +1,5 @@
 <template>
-  <form class="form" @submit.prevent="submitForm">
+  <form class="form" @submit.prevent>
     <div class="input-group">
       <atomic-input
         v-bind="fullName"
@@ -36,7 +36,11 @@
         :rules="rules.passwordConfirm"
       />
     </div>
-    <atomic-button label="Create account" @click="submitForm" />
+    <atomic-button
+      label="Create account"
+      :is-disabled="!meta.valid"
+      @click="submitForm"
+    />
   </form>
 </template>
 
@@ -55,16 +59,13 @@ const rules = {
   passwordConfirm: yup
     .string()
     .required("Password confirmation is required")
-    .test(
-      'passwords-match',
-      'Passwords must match',
-      (value, context) => {
-        return value === context.options.context.password;
-      }
-    ),
+    .test("passwords-match", "Passwords must match", (value, context) => {
+      return value === context.options.context.password;
+    }),
 };
 
 const {
+  meta,
   values: formData,
   validate,
   defineComponentBinds,
@@ -84,8 +85,6 @@ const password = defineComponentBinds("password");
 const passwordConfirm = defineComponentBinds("passwordConfirm");
 
 const submitForm = async () => {
-  console.log(formData.password);
-  console.log(formData.passwordConfirm);
   const { valid } = await validate();
   if (valid) {
     console.log("Registration successful with data:", formData);

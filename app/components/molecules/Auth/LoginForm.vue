@@ -1,20 +1,20 @@
 <template>
-  <form class="form" @submit.prevent="submitForm" >
+  <form class="form" @submit.prevent>
     <div class="input-group">
       <atomic-input
+        v-bind="email"
         name="email"
         type="email"
         placeholder="E-mail"
-        v-model="formData.email"
         :rules="rules.email"
       />
     </div>
     <div class="input-group">
       <atomic-input
+        v-bind="password"
         name="password"
         type="password"
         placeholder="Password"
-        v-model="formData.password"
         :rules="rules.password"
       />
     </div>
@@ -24,10 +24,16 @@
         <input type="checkbox" />
         Remember me
       </label>
-      <a href="#" class="forgot-password-link"> Forgot password? </a>
+      <router-link to="/" class="forgot-password-link"
+        >Forgot password?</router-link
+      >
     </div>
 
-    <atomic-button label="Log in" />
+    <atomic-button
+      label="Log in"
+      :is-disabled="!meta.valid"
+      @click="submitForm"
+    />
   </form>
 </template>
 
@@ -46,6 +52,8 @@ const {
   meta,
   values: formData,
   validate,
+  errors,
+  defineComponentBinds,
 } = useForm({
   validationSchema: rules,
   initialValues: {
@@ -54,14 +62,17 @@ const {
   },
 });
 
+const email = defineComponentBinds("email");
+const password = defineComponentBinds("password");
+
 const submitForm = async () => {
   const { valid } = await validate();
   if (valid) {
-    // Тут буде логіка входу з formData
     console.log("Login successful with data:", formData);
     emit("close");
   } else {
     console.log("Form has validation errors.");
+    console.log("Validation errors:", errors.value);
   }
 };
 </script>

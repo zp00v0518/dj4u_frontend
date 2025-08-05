@@ -5,7 +5,6 @@
       :name="name"
       :type="type"
       v-model="model"
-      @input="$emit('update:modelValue', $event.target.value)"
       :placeholder="placeholder"
       class="app-input"
     />
@@ -31,15 +30,9 @@ const props = defineProps({
     type: String,
     default: "",
   },
-  rules: {
-    type: [String, Object],
-    default: "",
-  },
 });
 
 const model = defineModel()
-const $emit = defineEmits(["update:modelValue"]);
-
 
 const { errorMessage } = useField(toRef(props, "name"), toRef(props, "rules"));
 </script>

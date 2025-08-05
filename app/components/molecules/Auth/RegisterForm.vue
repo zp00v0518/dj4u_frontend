@@ -41,7 +41,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 import { useForm } from "vee-validate";
 import * as yup from "yup";
 
@@ -55,8 +54,14 @@ const rules = {
     .required("Password is required"),
   passwordConfirm: yup
     .string()
-    .oneOf([yup.ref("password")], "Passwords must match")
-    .required("Password confirmation is required"),
+    .required("Password confirmation is required")
+    .test(
+      'passwords-match',
+      'Passwords must match',
+      (value, context) => {
+        return value === context.options.context.password;
+      }
+    ),
 };
 
 const {
@@ -79,7 +84,8 @@ const password = defineComponentBinds("password");
 const passwordConfirm = defineComponentBinds("passwordConfirm");
 
 const submitForm = async () => {
-  console.log(formData);
+  console.log(formData.password);
+  console.log(formData.passwordConfirm);
   const { valid } = await validate();
   if (valid) {
     console.log("Registration successful with data:", formData);

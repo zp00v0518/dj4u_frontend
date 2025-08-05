@@ -2,7 +2,7 @@
   <form class="form" @submit.prevent="submitForm">
     <div class="input-group">
       <atomic-input
-        v-model="formData.fullName"
+        v-bind="fullName"
         name="fullName"
         type="text"
         placeholder="Full name"
@@ -11,7 +11,7 @@
     </div>
     <div class="input-group">
       <atomic-input
-        v-model="formData.email"
+        v-bind="email"
         name="email"
         type="email"
         placeholder="E-mail"
@@ -20,7 +20,7 @@
     </div>
     <div class="input-group">
       <atomic-input
-        v-model="formData.password"
+        v-bind="password"
         name="password"
         type="password"
         placeholder="Password"
@@ -29,15 +29,14 @@
     </div>
     <div class="input-group">
       <atomic-input
-        v-model="formData.passwordConfirm"
+        v-bind="passwordConfirm"
         name="passwordConfirm"
         type="password"
         placeholder="Password confirm"
         :rules="rules.passwordConfirm"
       />
     </div>
-
-    <atomic-button label="Create account" />
+    <atomic-button label="Create account" @click="submitForm" />
   </form>
 </template>
 
@@ -47,7 +46,6 @@ import { useForm } from "vee-validate";
 import * as yup from "yup";
 
 const emit = defineEmits(["close"]);
-
 const rules = {
   fullName: yup.string().required("Full name is required"),
   email: yup.string().email("Invalid email").required("Email is required"),
@@ -62,9 +60,9 @@ const rules = {
 };
 
 const {
-  meta,
   values: formData,
   validate,
+  defineComponentBinds,
 } = useForm({
   validationSchema: rules,
   initialValues: {
@@ -75,7 +73,13 @@ const {
   },
 });
 
+const email = defineComponentBinds("email");
+const fullName = defineComponentBinds("fullName");
+const password = defineComponentBinds("password");
+const passwordConfirm = defineComponentBinds("passwordConfirm");
+
 const submitForm = async () => {
+  console.log(formData);
   const { valid } = await validate();
   if (valid) {
     console.log("Registration successful with data:", formData);
@@ -86,5 +90,4 @@ const submitForm = async () => {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

@@ -4,7 +4,7 @@
       :id="name"
       :name="name"
       :type="type"
-      :value="modelValue"
+      v-model="model"
       @input="$emit('update:modelValue', $event.target.value)"
       :placeholder="placeholder"
       class="app-input"
@@ -31,18 +31,17 @@ const props = defineProps({
     type: String,
     default: "",
   },
-  modelValue: {
-    type: [String, Number],
-    default: "",
-  },
   rules: {
     type: [String, Object],
     default: "",
   },
 });
 
+const model = defineModel()
+const $emit = defineEmits(["update:modelValue"]);
+
+
 const { errorMessage } = useField(toRef(props, "name"), toRef(props, "rules"));
-const emit = defineEmits(["update:modelValue"]);
 </script>
 
 <style lang="scss" scoped>
@@ -50,6 +49,7 @@ const emit = defineEmits(["update:modelValue"]);
 .app-input-wrapper {
   position: relative;
   width: 100%;
+  margin-bottom: 10px;
 }
 
 .app-input {
@@ -75,9 +75,10 @@ const emit = defineEmits(["update:modelValue"]);
 
 .app-input-error {
   position: absolute;
-  bottom: -1.5rem;
+  bottom: 0;
   left: 0;
-  font-size: 0.75rem;
+  font-size: rem(12px);
+  transform: translateY(100%);
   color: var(--txt-accent-color);
 }
 </style>

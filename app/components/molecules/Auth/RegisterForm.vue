@@ -47,10 +47,15 @@
 <script setup lang="ts">
 import { useForm } from "vee-validate";
 import * as yup from "yup";
+import useProfileStore from "@/store/useProfileStore";
+const { registration } = useProfileStore();
 
 const emit = defineEmits(["close"]);
 const rules = {
-  fullName: yup.string().required("Full name is required"),
+  fullName: yup
+    .string()
+    .max(50, "Name must be less than 50 characters")
+    .required("Full name is required"),
   email: yup.string().email("Invalid email").required("Email is required"),
   password: yup
     .string()
@@ -87,7 +92,8 @@ const passwordConfirm = defineComponentBinds("passwordConfirm");
 const submitForm = async () => {
   const { valid } = await validate();
   if (valid) {
-    console.log("Registration successful with data:", formData);
+      const data = await registration(formData);
+      console.log("Registration successful with data:", data);
     emit("close");
   } else {
     console.log("Form has validation errors.");

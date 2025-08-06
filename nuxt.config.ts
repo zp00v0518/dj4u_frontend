@@ -7,10 +7,10 @@ const { resolve } = createResolver(dirname(fileURLToPath(import.meta.url)));
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@pinia/nuxt", "@nuxt/eslint", "@nuxt/image"],
+  modules: ["@pinia/nuxt", "@nuxt/eslint", "@nuxt/image", "@vueuse/nuxt"],
   css: [
     "@/assets/styles/index.scss",
-    'vue-final-modal/style.css'
+    "vue-final-modal/style.css",
     // "@/node_modules/vue-final-modal/dist/style.css",
     // "@/node_modules/vue-skeletor/dist/vue-skeletor.css",
   ],
@@ -46,9 +46,9 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@use "@/assets/styles/abstracts/_functions" as *;'
-        }
-      }
-    }
-  }
+          additionalData: '@use "@/assets/styles/abstracts/_functions" as *;',
+        },
+      },
+    },
+  },
 });

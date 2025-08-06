@@ -13,6 +13,7 @@
     "@nuxt/eslint": "^1.7.1",
     "@nuxt/image": "^1.11.0",
     "@pinia/nuxt": "^0.11.2",
+    "axios": "^1.11.0",
     "nuxt": "^4.0.1",
     "vee-validate": "^4.15.1",
     "vue": "^3.5.18",
@@ -21,6 +22,8 @@
     "yup": "^1.7.0"
   },
   "devDependencies": {
+    "@vueuse/core": "^13.6.0",
+    "@vueuse/nuxt": "^13.6.0",
     "sass-embedded": "^1.89.2",
     "stylelint": "^16.23.0",
     "stylelint-config-standard-scss": "^15.0.1"

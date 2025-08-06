@@ -6,10 +6,10 @@
 <script setup lang="ts">
 import useProfileStore from "./store/useProfileStore";
 import { ModalsContainer } from "vue-final-modal";
-const profileStore = useProfileStore();
+const { checkLogin } = useProfileStore();
 
 onMounted(() => {
-  console.log(profileStore);
+  console.log(checkLogin());
 });
 </script>
 

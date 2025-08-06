@@ -47,6 +47,7 @@
 <script setup lang="ts">
 import { useForm } from "vee-validate";
 import * as yup from "yup";
+const router = useRouter();
 import useProfileStore from "@/store/useProfileStore";
 const { registration } = useProfileStore();
 
@@ -92,8 +93,9 @@ const passwordConfirm = defineComponentBinds("passwordConfirm");
 const submitForm = async () => {
   const { valid } = await validate();
   if (valid) {
-      const data = await registration(formData);
-      console.log("Registration successful with data:", data);
+    const data = await registration(formData);
+    console.log("Registration successful with data:", data);
+    await router.push("/account");
     emit("close");
   } else {
     console.log("Form has validation errors.");

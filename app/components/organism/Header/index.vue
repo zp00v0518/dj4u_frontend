@@ -15,14 +15,17 @@
 
 <script setup lang="ts">
 import useModalStore from "@/store/useModalStore";
+import useProfileStore from "@/store/useProfileStore";
+import { storeToRefs } from "pinia";
+const { isLogin } = storeToRefs(useProfileStore());
 
 const router = useRouter();
 
 const { openModal } = useModalStore();
 
 async function goToAProfile() {
-  await openModal('AuthForm')
-  // await router.push("/account");
+  console.log(isLogin);
+  isLogin.value ? await router.push("/account") : await openModal("AuthForm");
 }
 </script>
 

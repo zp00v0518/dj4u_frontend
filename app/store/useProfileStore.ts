@@ -11,13 +11,15 @@ export default defineStore("useProfileStore", {
     async registration(data) {
       const result = await UserApi.registrationUser(data);
       if (result.status) {
-        useStorage("profile", result.data);
+        useStorage("profile", result.data, localStorage, {
+          mergeDefaults: true,
+        });
         return result.data;
       }
     },
 
     checkLogin() {
-      const data = useStorage("profile", {});
+      const data = useStorage("profile", null);
       if (data.value) this.isLogin = true;
     },
   },

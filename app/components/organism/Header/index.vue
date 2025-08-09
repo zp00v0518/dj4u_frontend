@@ -27,6 +27,11 @@ async function goToAProfile() {
   console.log(isLogin);
   isLogin.value ? await router.push("/account") : await openModal("AuthForm");
 }
+
+onMounted(()=> {
+console.log(router)
+
+})
 </script>
 
 <style lang="scss" scoped>
@@ -37,7 +42,8 @@ async function goToAProfile() {
   backdrop-filter: blur(5px);
   max-width: 719px;
   margin: 0 auto;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
+  margin-top: 30px;
   border-radius: 40px;
 }
 

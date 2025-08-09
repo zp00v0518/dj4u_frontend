@@ -1,5 +1,8 @@
 <template>
-  <NuxtPage />
+  <organism-header />
+  <main class="main">
+    <NuxtPage />
+  </main>
   <ModalsContainer />
 </template>
 
@@ -13,4 +16,8 @@ onMounted(() => {
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.main {
+  padding: 20px var(--padding-side-main);
+}
+</style>

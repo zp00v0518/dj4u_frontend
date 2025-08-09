@@ -5,6 +5,7 @@ import { useStorage } from "@vueuse/core";
 export default defineStore("useProfileStore", {
   state: () => ({
     isLogin: false,
+    profile: null
   }),
 
   actions: {
@@ -20,7 +21,11 @@ export default defineStore("useProfileStore", {
 
     checkLogin() {
       const data = useStorage("profile", null);
-      if (data.value) this.isLogin = true;
+      if (data.value) {
+        console.log(data.value);
+        this.profile = data.value;
+        this.isLogin = true;
+      }
     },
   },
 });

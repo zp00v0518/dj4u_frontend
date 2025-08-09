@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import UserApi from "@/api/User";
-import { useStorage } from "@vueuse/core";
+import { useStorage, StorageSerializers } from "@vueuse/core";
 
 export default defineStore("useProfileStore", {
   state: () => ({
@@ -12,7 +12,7 @@ export default defineStore("useProfileStore", {
     async registration(data) {
       const result = await UserApi.registrationUser(data);
       if (result.status) {
-        useStorage("profile", result.data, localStorage, {
+        useStorage("profile", result.data, undefined, {
           mergeDefaults: true,
         });
         return result.data;
@@ -20,7 +20,8 @@ export default defineStore("useProfileStore", {
     },
 
     checkLogin() {
-      const data = useStorage("profile", null);
+      const data = useStorage("profile", null, undefined, { serializer: StorageSerializers.object });
+      console.log(data.value)
       if (data.value) {
         console.log(data.value);
         this.profile = data.value;

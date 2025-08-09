@@ -34,7 +34,6 @@ const isHomePage = computed(() => {
 const { openModal } = useModalStore();
 
 const menu = computed(() => {
-  console.log(isHomePage.value);
   if (isHomePage.value) {
     return [
       { label: "About", path: "/#about" },
@@ -52,13 +51,9 @@ const menu = computed(() => {
 });
 
 async function goToAProfile() {
-  console.log(isLogin);
   isLogin.value ? await router.push("/account") : await openModal("AuthForm");
 }
 
-onMounted(() => {
-  console.log(route);
-});
 </script>
 
 <style lang="scss" scoped>

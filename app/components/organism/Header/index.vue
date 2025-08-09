@@ -20,6 +20,7 @@ import { storeToRefs } from "pinia";
 const { isLogin } = storeToRefs(useProfileStore());
 
 const router = useRouter();
+const route = useRoute();
 
 const { openModal } = useModalStore();
 
@@ -28,26 +29,29 @@ async function goToAProfile() {
   isLogin.value ? await router.push("/account") : await openModal("AuthForm");
 }
 
-onMounted(()=> {
-console.log(router)
-
-})
+onMounted(() => {
+  console.log(route);
+});
 </script>
 
 <style lang="scss" scoped>
 .header {
+  --shift-top: 30px;
+  height: var(--header-height);
+  position: sticky;
+  top: calc(0px - var(--shift-top));
+  z-index: 10000;
+  padding-top: var(--shift-top);
+}
+
+.nav-links {
   padding: 13px 27px;
   border-radius: var(--radius-main);
   background: var(--bg-secondary-color);
   backdrop-filter: blur(5px);
   max-width: 719px;
   margin: 0 auto;
-  margin-bottom: 40px;
-  margin-top: 30px;
   border-radius: 40px;
-}
-
-.nav-links {
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;

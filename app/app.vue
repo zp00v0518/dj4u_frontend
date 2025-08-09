@@ -18,6 +18,6 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .main {
-  padding: 20px var(--padding-side-main);
+  padding: 0px var(--padding-side-main);
 }
 </style>

@@ -64,7 +64,7 @@ const steps = [
     display: flex;
     align-items: start;
     gap: 20px;
-    background-image: url("img/hiw-bg.png");
+    background-image: url("/img/hiw-bg.png");
     background-repeat: no-repeat;
     background-size: 325px;
     background-position: center;

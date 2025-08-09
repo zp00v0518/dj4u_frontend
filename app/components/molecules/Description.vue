@@ -45,7 +45,7 @@ const whyList = [
 
 <style lang="scss" scoped>
 .descr-first {
-  background-image: url("img/description_1_bg.png");
+  background-image: url("/img/description_1_bg.png");
   background-repeat: no-repeat;
   background-size: 41%;
   background-position: center 31px;

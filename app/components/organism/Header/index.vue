@@ -1,14 +1,19 @@
 <template>
-  <header class="header">
+  <header class="header" :class="{ 'home-page': isHomePage }">
     <nav class="nav-links">
-      <NuxtLink @click="goToAProfile">My account</NuxtLink>
+      <NuxtLink v-if="isHomePage" @click="goToAProfile">My account</NuxtLink>
 
       <div class="nav-links__menu">
-        <NuxtLink to="/#about">About</NuxtLink>
-        <NuxtLink to="/#pricing">Pricing</NuxtLink>
-        <NuxtLink to="/#contacts">Contact</NuxtLink>
+        <NuxtLink
+          v-for="menuItem in menu"
+          :key="menuItem.path"
+          :to="menuItem.path"
+          >{{ menuItem.label }}</NuxtLink
+        >
       </div>
-      <NuxtLink class="nav-links__free" to="/#try-free">Try for free</NuxtLink>
+      <NuxtLink v-if="isHomePage" class="nav-links__free" to="/#try-free"
+        >Try for free</NuxtLink
+      >
     </nav>
   </header>
 </template>
@@ -22,7 +27,29 @@ const { isLogin } = storeToRefs(useProfileStore());
 const router = useRouter();
 const route = useRoute();
 
+const isHomePage = computed(() => {
+  return route.path === "/";
+});
+
 const { openModal } = useModalStore();
+
+const menu = computed(() => {
+  console.log(isHomePage.value);
+  if (isHomePage.value) {
+    return [
+      { label: "About", path: "/#about" },
+      { label: "Pricing", path: "/#pricing" },
+      { label: "Contact", path: "/#contacts" },
+    ];
+  } else {
+    return [
+      { label: "Home", path: "/" },
+      { label: "Subscription", path: "/subscription" },
+      { label: "Account settings", path: "/settings" },
+      { label: "Support", path: "/support" },
+    ];
+  }
+});
 
 async function goToAProfile() {
   console.log(isLogin);
@@ -42,6 +69,12 @@ onMounted(() => {
   top: calc(0px - var(--shift-top));
   z-index: 10000;
   padding-top: var(--shift-top);
+
+  &:not(&.home-page) {
+    .nav-links__menu {
+      width: 100%;
+    }
+  }
 }
 
 .nav-links {
@@ -70,6 +103,7 @@ onMounted(() => {
   &__menu {
     display: flex;
     gap: 44px;
+    justify-content: space-between;
   }
 
   a.nav-links__free {

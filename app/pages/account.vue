@@ -11,6 +11,8 @@
 <style lang="scss" scoped>
 .account {
     background-image: url('/img/main-banner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 100dvh;
     margin-top: calc(0px - var(--header-height));
     margin-left: calc(0px - var(--padding-side-main));

@@ -2,6 +2,8 @@
   <div class="account" v-if="profile">
     <h1 class="account__greeting">Welcome, &nbsp; {{ profile.fullName }}!</h1>
     <h4 class="account__subtitle">Choose your plan to start mixing</h4>
+
+    <Plans />
   </div>
 </template>
 
@@ -9,6 +11,9 @@
 import { onMounted } from "vue";
 import useProfileStore from "@/store/useProfileStore";
 import { storeToRefs } from "pinia";
+
+import Plans from "@/components/molecules/Plans.vue";
+
 const { profile } = storeToRefs(useProfileStore());
 
 onMounted(() => {

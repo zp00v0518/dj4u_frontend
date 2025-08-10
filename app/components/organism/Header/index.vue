@@ -20,9 +20,11 @@
 
 <script setup lang="ts">
 import useModalStore from "@/store/useModalStore";
+import useLayuotStore from "@/store/useLayuotStore";
 import useProfileStore from "@/store/useProfileStore";
 import { storeToRefs } from "pinia";
 const { isLogin } = storeToRefs(useProfileStore());
+const { getMenu: menu } = storeToRefs(useLayuotStore());
 
 const router = useRouter();
 const route = useRoute();
@@ -33,27 +35,9 @@ const isHomePage = computed(() => {
 
 const { openModal } = useModalStore();
 
-const menu = computed(() => {
-  if (isHomePage.value) {
-    return [
-      { label: "About", path: "/#about" },
-      { label: "Pricing", path: "/#pricing" },
-      { label: "Contact", path: "/#contacts" },
-    ];
-  } else {
-    return [
-      { label: "Home", path: "/" },
-      { label: "Subscription", path: "/subscription" },
-      { label: "Account settings", path: "/settings" },
-      { label: "Support", path: "/support" },
-    ];
-  }
-});
-
 async function goToAProfile() {
   isLogin.value ? await router.push("/account") : await openModal("AuthForm");
 }
-
 </script>
 
 <style lang="scss" scoped>

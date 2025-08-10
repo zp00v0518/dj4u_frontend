@@ -21,9 +21,7 @@ export default defineStore("useProfileStore", {
 
     checkLogin() {
       const data = useStorage("profile", null, undefined, { serializer: StorageSerializers.object });
-      console.log(data.value)
       if (data.value) {
-        console.log(data.value);
         this.profile = data.value;
         this.isLogin = true;
       }

@@ -3,6 +3,7 @@
   <main class="main">
     <NuxtPage />
   </main>
+  <organism-footer />
   <ModalsContainer />
 </template>
 

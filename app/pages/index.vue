@@ -5,7 +5,7 @@
   <molecules-pricing id="pricing" />
   <molecules-try-free id="try-free" />
   <molecules-contacts id="contacts" />
-  <organism-footer />
+  <!-- <organism-footer /> -->
 </template>
 
 <script setup lang="ts"></script>

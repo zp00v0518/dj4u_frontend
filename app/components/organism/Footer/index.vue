@@ -14,7 +14,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 var(--padding-side-main);
   padding-top: 13px;
+  padding-bottom: 30px;
+  max-width: 100%;
 }
 </style>

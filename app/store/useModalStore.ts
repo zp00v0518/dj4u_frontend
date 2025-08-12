@@ -13,6 +13,7 @@ interface IModalStoreState {
   modals: IModals;
   openingModals: string[];
   sameComponent: Record<string, string>;
+  modalsUrl: string[];
 }
 
 export default defineStore("modalStore", {
@@ -26,8 +27,10 @@ export default defineStore("modalStore", {
       },
       openingModals: [],
       sameComponent: {},
+      modalsUrl: ["support"],
     };
   },
+
 
   actions: {
     async openModal(
@@ -35,28 +38,39 @@ export default defineStore("modalStore", {
       attrs: Record<string, any> = {},
     ): Promise<void> {
       this.openingModals.push(modalName);
+      console.log(modalName);
 
       this.modals[modalName] = undefined;
-      if (!this.modals[modalName]) {
-        const modalComponent = defineAsyncComponent(
-          () =>
-            import(
-              `../components/modals/${
-                this.sameComponent[modalName] || modalName
-              }.vue`
+      try {
+        if (!this.modals[modalName]) {
+          const modalComponent = defineAsyncComponent(
+            () =>
+              import(
+                `../components/modals/${
+                  this.sameComponent[modalName] || modalName
+                }.vue`
+              ),
+          );
+
+          this.modals[modalName] = useModal({
+            component: modalComponent,
+            attrs: {
+              ...attrs,
+            },
+          });
+        } else {
+          this.modals[modalName].patchOptions({
+            attrs: Object.assign(
+              {},
+              this.modals[modalName].options.attrs,
+              attrs,
             ),
-        );
-        this.modals[modalName] = useModal({
-          component: modalComponent,
-          attrs: {
-            ...attrs,
-          },
-        });
-      } else {
-        this.modals[modalName].patchOptions({
-          attrs: Object.assign({}, this.modals[modalName].options.attrs, attrs),
-        });
+          });
+        }
+      } catch (error) {
+        console.log(error);
       }
+
       this.modals[modalName].open();
       this.openingModals = this.openingModals.filter(
         (item) => item !== modalName,
@@ -66,5 +80,8 @@ export default defineStore("modalStore", {
     async closeModal(modalName: string): Promise<void> {
       this.modals[modalName]?.close();
     },
+
+    async closeAllModalsUrls(){
+    }
   },
 });

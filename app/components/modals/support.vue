@@ -1,5 +1,5 @@
 <template>
-  <atomic-modal>
+  <atomic-modal @closed="closeModal('support')">
     <div class="support">
       <div class="support__title">Support</div>
       <div class="support__subtitle">
@@ -55,6 +55,8 @@ import { useForm } from "vee-validate";
 import * as yup from "yup";
 import useProfileStore from "@/store/useProfileStore";
 import { storeToRefs } from "pinia";
+import useModalStore from "@/store/useModalStore";
+const { closeModal } = useModalStore();
 
 const { profile } = storeToRefs(useProfileStore());
 
@@ -90,7 +92,6 @@ const submitForm = async () => {
   const { valid } = await validate();
   if (valid) {
     console.log("Support message sent with data:", formData);
-    emit("close");
   } else {
     console.log("Form has validation errors.");
     console.log("Validation errors:", errors.value);

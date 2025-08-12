@@ -4,6 +4,7 @@
     content-class="modal__content"
     overlay-transition="vfm-fade"
     content-transition="vfm-fade"
+    @closed="emit('closed')"
   >
     <div class="modal__body">
       <slot />
@@ -13,6 +14,7 @@
 
 <script setup>
 import { VueFinalModal } from "vue-final-modal";
+const emit = defineEmits(["closed"]);
 </script>
 
 <style lang="scss">

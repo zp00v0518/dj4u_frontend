@@ -31,7 +31,6 @@ export default defineStore("modalStore", {
     };
   },
 
-
   actions: {
     async openModal(
       modalName: string,
@@ -78,10 +77,15 @@ export default defineStore("modalStore", {
     },
 
     async closeModal(modalName: string): Promise<void> {
+      await this.removeModalQuery(modalName);
       this.modals[modalName]?.close();
     },
 
-    async closeAllModalsUrls(){
-    }
+    async removeModalQuery(modalName: string): Promise<void> {
+      const router = useRouter();
+      const { query, hash } = useRoute();
+      const newQuery = { ...query, openModal: undefined };
+      await router.replace({ hash, query: newQuery });
+    },
   },
 });

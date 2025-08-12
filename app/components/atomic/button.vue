@@ -29,6 +29,7 @@ const props = withDefaults(
 
 <style lang="scss">
 .app-btn {
+  display: block;
   width: var(--btn-width, fit-content);
   padding: 13px 30px;
   border-radius: 30px;

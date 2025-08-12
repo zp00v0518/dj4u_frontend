@@ -1,12 +1,12 @@
 <template>
-  <VueFinalModal
-    :click-to-close="false"
-    class="modal-auth"
-    content-class="modal-auth-content"
-    overlay-transition="vfm-fade"
-    content-transition="vfm-fade"
-    @close="closeModal('support')"
-  >
+  <atomic-modal>
+    <div class="support">
+      <div class="support__title">Support</div>
+      <div class="support__subtitle">
+        Need personal assistance? Send us a message
+      </div>
+    </div>
+
     <form class="form" @submit.prevent="submitForm">
       <div class="input-group">
         <atomic-input
@@ -39,18 +39,24 @@
 
       <div class="support-options">
         <p>Are you a Business plan customer or using our API?</p>
-        <a href="#" class="account-manager-link"
+        <a
+          href="https://t.me/andriikalinichenko"
+          class="account-manager-link"
+          target="_blank"
           >Contact your account manager</a
         >
       </div>
     </form>
-  </VueFinalModal>
+  </atomic-modal>
 </template>
 
 <script setup lang="ts">
-import { VueFinalModal } from "vue-final-modal";
 import { useForm } from "vee-validate";
 import * as yup from "yup";
+import useProfileStore from "@/store/useProfileStore";
+import { storeToRefs } from "pinia";
+
+const { profile } = storeToRefs(useProfileStore());
 
 const emit = defineEmits(["close"]);
 
@@ -69,7 +75,7 @@ const {
 } = useForm({
   validationSchema: rules,
   initialValues: {
-    email: "",
+    email: profile.value?.email || "",
     subject: "",
     message: "",
   },
@@ -93,6 +99,16 @@ const submitForm = async () => {
 </script>
 
 <style lang="scss" scoped>
+.support {
+  text-align: center;
+  margin-bottom: 53px;
+
+  &__title {
+    font-size: rem(24px);
+    font-weight: 500;
+    margin-bottom: 18px;
+  }
+}
 .support-options {
   text-align: center;
   margin-top: 2rem;
@@ -118,5 +134,11 @@ const submitForm = async () => {
 
 .input-group {
   margin-bottom: 1.5rem;
+}
+
+.form {
+  .app-btn {
+    margin: 0 auto;
+  }
 }
 </style>

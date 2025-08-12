@@ -31,8 +31,8 @@
           {{ isLogin ? "Welcome back" : "Create Your Account" }}
         </h2>
 
-        <LoginForm v-if="isLogin" @close="$emit('close')" />
-        <RegisterForm v-else @close="$emit('close')" />
+        <LoginForm v-if="isLogin" @close="closeModal('AuthForm')" />
+        <RegisterForm v-else @close="closeModal('AuthForm')" />
       </div>
     </div>
   </VueFinalModal>

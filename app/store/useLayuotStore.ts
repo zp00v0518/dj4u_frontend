@@ -18,8 +18,8 @@ export default defineStore("layoutStore", {
       } else {
         return [
           { label: "Home", path: "/" },
-          { label: "Subscription", path: "#/subscription" },
-          { label: "Account settings", path: "#/settings" },
+          { label: "Subscription", path: "?openModal=subscription" },
+          { label: "Account settings", path: "#settings" },
           { label: "Support", path: "?openModal=support" },
         ];
       }

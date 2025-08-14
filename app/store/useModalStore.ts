@@ -54,6 +54,7 @@ export default defineStore("modalStore", {
           this.modals[modalName] = useModal({
             component: modalComponent,
             attrs: {
+              modalName,
               ...attrs,
             },
           });

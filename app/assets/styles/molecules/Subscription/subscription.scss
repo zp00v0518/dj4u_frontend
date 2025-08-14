@@ -1,0 +1,31 @@
+.subscription-body {
+  padding-top: 1.5rem;
+}
+
+.details {
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.detail-item {
+  color: var(--txt-primary-color);
+}
+
+.detail-label {
+  font-weight: 500;
+  color: var(--txt-secondary-color);
+  margin-right: 0.5rem;
+}
+
+.limit-message {
+  text-align: center;
+  color: var(--txt-secondary-color);
+  margin-bottom: 2rem;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}

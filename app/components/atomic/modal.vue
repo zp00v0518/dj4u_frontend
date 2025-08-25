@@ -7,9 +7,7 @@
     @closed="close"
   >
     <div class="modal__body">
-      <button class="modal__close-button" @click="close">
-        &times;
-      </button>
+      <button class="modal__close-button" @click="close">&times;</button>
       <slot />
     </div>
   </VueFinalModal>

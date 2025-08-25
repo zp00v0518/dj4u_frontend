@@ -2,8 +2,8 @@
   <atomic-modal @closed="closeModal('subscription')">
     <header class="subscription-header">
       <div>
-        <h2 class="subscription-title">Subscription Details</h2>
-        <p class="subscription-subtitle">Your Plan: Free</p>
+        <div class="subscription-title">Subscription Details</div>
+        <div class="subscription-subtitle">Your Plan: Free</div>
       </div>
     </header>
 
@@ -26,9 +26,7 @@ const emit = defineEmits(["close"]);
 
 <style lang="scss">
 .subscription-header {
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border-color);
-  margin-bottom: 2rem;
+  margin-bottom: 70px;
   font-size: rem(24px);
   font-weight: 500;
   line-height: normal;
@@ -37,15 +35,13 @@ const emit = defineEmits(["close"]);
 }
 
 .subscription-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--txt-primary-color);
+  margin-bottom: 18px;
 }
 
 .subscription-subtitle {
-  font-size: 0.875rem;
-  color: var(--txt-secondary-color);
-  margin-top: 0.5rem;
+  font-size: rem(20px);
+  font-weight: 400;
+  line-height: 132.562%; /* 26.512px */
 }
 
 .footer {

@@ -1,19 +1,19 @@
 <template>
   <div class="subscription-body">
     <div class="details">
-      <p class="detail-item">
+      <div class="detail-item">
         <span class="detail-label">Usage:</span>
         4 of 10 mixes used this month
-      </p>
-      <p class="detail-item">
+      </div>
+      <div class="detail-item">
         <span class="detail-label">Next reset:</span>
         August 31, 2025
-      </p>
+      </div>
     </div>
 
-    <p class="limit-message">
+    <div class="limit-message">
       Limited to 10 mixes per month. Upgrade for unlimited access.
-    </p>
+    </div>
 
     <div class="button-group">
       <atomic-button label="Upgrade to Pro" type="white" />

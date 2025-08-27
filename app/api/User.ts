@@ -6,10 +6,13 @@ class User extends API {
   }
 
   async registrationUser(data) {
-    return {
-      status: true,
-      data,
-    };
+    const response = await this.post("/profile/registration", data);
+    return response
+  }
+
+  async getProfile() {
+    const response = await this.post("/profile");
+    return response?.data?.data;
   }
 }
 

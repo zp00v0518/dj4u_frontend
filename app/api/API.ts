@@ -10,7 +10,7 @@ class API {
     let response = {};
     const url = this.baseUrl ? this.baseUrl + path : path;
     try {
-      const config = Object.assign({ url }, params);
+      const config = Object.assign({ url, withCredentials: true, }, params);
       response = await axios.request(config);
     } catch (error) {
       console.error("Error sending request:", error);

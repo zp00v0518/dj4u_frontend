@@ -11,17 +11,21 @@ export default defineStore("useProfileStore", {
   actions: {
     async registration(data) {
       const result = await UserApi.registrationUser(data);
+      console.log(result)
       if (result.status) {
-        useStorage("profile", result.data, undefined, {
-          mergeDefaults: true,
-        });
+        // useStorage("profile", result.data, undefined, {
+        //   mergeDefaults: true,
+        // });
         return result.data;
+      } else {
       }
     },
 
-    checkLogin() {
-      const data = useStorage("profile", null, undefined, { serializer: StorageSerializers.object });
-      if (data.value) {
+    async checkLogin() {
+      // const data = useStorage("profile", null, undefined, { serializer: StorageSerializers.object });
+      const data = await UserApi.getProfile()
+      if (data) {
+        console.log(data)
         this.profile = data.value;
         this.isLogin = true;
       }

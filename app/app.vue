@@ -1,4 +1,10 @@
 <template>
+  <atomic-button
+    v-if="isDev"
+    label="click"
+    :style="{ position: 'fixed', cursor: 'pointer', zIndex: 99999 }"
+    @click="madeDevAction"
+  ></atomic-button>
   <organism-header />
   <main class="main">
     <NuxtPage />
@@ -13,10 +19,23 @@ import { ModalsContainer } from "vue-final-modal";
 import useModalStore from "@/store/useModalStore";
 const { openModal } = useModalStore();
 const { checkLogin } = useProfileStore();
-
+const isDev = computed(() => {
+  return import.meta.env.DEV;
+});
 onMounted(() => {
   checkLogin();
 });
+
+async function madeDevAction(){
+  const { registration } = useProfileStore();
+      const data = await registration({
+        fullName: 'adasd sdfsdf sdfsf',
+        email: 'd222fh4q@gmail.com',
+        password: '111111',
+        passwordConfirm: '111111'
+      });
+      console.log(data)
+}
 
 const route = useRoute();
 

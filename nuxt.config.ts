@@ -2,12 +2,13 @@
 import { createResolver } from "@nuxt/kit";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
+import ElementPlus from "unplugin-element-plus/vite";
 
 const { resolve } = createResolver(dirname(fileURLToPath(import.meta.url)));
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@pinia/nuxt", "@nuxt/eslint", "@nuxt/image", "@vueuse/nuxt"],
+  modules: ["@pinia/nuxt", "@nuxt/eslint", "@nuxt/image", "@vueuse/nuxt",  '@element-plus/nuxt',],
   css: [
     "@/assets/styles/index.scss",
     "vue-final-modal/style.css",
@@ -43,6 +44,7 @@ export default defineNuxtConfig({
     },
   },
   vite: {
+    plugins: [ElementPlus()],
     css: {
       preprocessorOptions: {
         scss: {

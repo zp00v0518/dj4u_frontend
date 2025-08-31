@@ -3,12 +3,25 @@
     <div class="upload-card">
       <div v-if="currentState === 'initial'" class="upload-card__body">
         <h3 class="card-title">Upload Your Tracks</h3>
-        <div class="drag-and-drop-area">
-          <p class="drag-and-drop-text">
-            Drag & drop your audio files here<br />or click to select from your
-            computer.
-          </p>
-        </div>
+
+        <el-upload
+          v-model:file-list="fileList"
+          class="drag-and-drop-area"
+          multiple
+          drag
+          :auto-upload="false"
+          :limit="5"
+          :on-change="handleChangeUpload"
+          :on-exceed="handleExceed"
+          accept="audio/mpeg"
+        >
+          <div class="el-upload__text">
+            <p class="drag-and-drop-text">
+              Drag & drop your audio files here<br />or click to select from
+              your computer.
+            </p>
+          </div>
+        </el-upload>
       </div>
 
       <div v-if="currentState === 'uploaded'" class="upload-card__body">
@@ -60,8 +73,9 @@
       <div class="card-actions">
         <atomic-button
           label="Create my Mix"
-          :is-disabled="currentState !== 'uploaded'"
+          :is-disabled="currentState !== 'uploaded' && fileList.length === 0"
           :type="currentState === 'uploaded' ? 'white' : ''"
+          @click="createMix"
         />
         <atomic-button
           label="Download Mix"
@@ -74,16 +88,29 @@
 </template>
 
 <script setup lang="ts">
+import { ElUpload, ElMessage } from "element-plus";
+
 const currentState = ref("initial");
-const uploadedFiles = ref([
-  { name: "Midnight_Rhythm.mp3" },
-  { name: "Chillwave_Sunset.wav" },
-  { name: "DeepGroove_Bassline.mp3" },
-  { name: "DeepGroove_Bassline.mp3" },
-  { name: "DeepGroove_Bassline.mp3" },
-  { name: "DeepGroove_Bassline.mp3" },
-  { name: "DeepGroove_Bassline.mp3" },
-]);
+const fileList = ref([]);
+
+function handleChangeUpload(a, b, c) {
+  console.log(a, b, c);
+}
+
+function handleExceed(files, uploadFiles) {
+  ElMessage({
+    duration: 4000,
+    type: "error",
+    message: `The limit is 5, you selected ${
+      files.length
+    } files this time, add up to ${files.length + uploadFiles.length} totally`,
+  });
+}
+
+function createMix() {
+  const formData = new FormData();
+  fileList.valueEquals.forEach((i) => formData.append("files", i));
+}
 </script>
 
 <style lang="scss" scoped>
@@ -117,6 +144,18 @@ const uploadedFiles = ref([
   font-size: rem(24px);
   text-align: center;
   margin: 0;
+  margin-bottom: 20px;
+}
+.drag-and-drop-area {
+  &:deep() {
+    .el-upload {
+      width: 100%;
+
+      .el-upload-dragger {
+        background: transparent;
+      }
+    }
+  }
 }
 
 .drag-and-drop-area,
@@ -132,6 +171,7 @@ const uploadedFiles = ref([
 }
 
 .drag-and-drop-text {
+  font-size: 1rem;
   color: var(--txt-secondary-color);
   line-height: 132.562%;
   margin: 0;
@@ -158,7 +198,7 @@ const uploadedFiles = ref([
   justify-content: space-between;
   align-items: center;
   margin-bottom: 6px;
-  
+
   &:last-child {
     border-bottom: none;
     margin-bottom: 0px;

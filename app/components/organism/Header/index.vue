@@ -46,7 +46,7 @@ async function goToAProfile() {
   height: var(--header-height);
   position: sticky;
   top: calc(0px - var(--shift-top));
-  z-index: 10000;
+  z-index: 9;
   padding-top: var(--shift-top);
 
   &:not(&.home-page) {

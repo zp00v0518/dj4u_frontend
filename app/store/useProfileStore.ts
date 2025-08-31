@@ -29,5 +29,11 @@ export default defineStore("useProfileStore", {
         this.isLogin = false;
       }
     },
+
+    async loginUser(data) {
+      const result = await UserApi.loginUser(data);
+      if (result.status) this.setProfile(result.data);
+      return result;
+    },
   },
 });

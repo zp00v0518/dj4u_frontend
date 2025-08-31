@@ -40,6 +40,8 @@
 <script setup lang="ts">
 import { useForm } from "vee-validate";
 import * as yup from "yup";
+import useProfileStore from "@/store/useProfileStore";
+const { loginUser } = useProfileStore();
 
 const emit = defineEmits(["close"]);
 
@@ -68,8 +70,9 @@ const password = defineComponentBinds("password");
 const submitForm = async () => {
   const { valid } = await validate();
   if (valid) {
-    console.log("Login successful with data:", formData);
-    emit("close");
+    const data = await loginUser(formData);
+    console.log(data);
+    // emit("close");
   } else {
     console.log("Form has validation errors.");
     console.log("Validation errors:", errors.value);

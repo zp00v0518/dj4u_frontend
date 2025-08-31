@@ -11,16 +11,16 @@
       <div class="auth-header">
         <button
           class="auth-link"
-          :class="{ active: isLogin }"
-          @click="isLogin = true"
+          :class="{ active: isLoginForm }"
+          @click="isLoginForm = true"
         >
           Log in
         </button>
         <span class="auth-divider">|</span>
         <button
           class="auth-link"
-          :class="{ active: !isLogin }"
-          @click="isLogin = false"
+          :class="{ active: !isLoginForm }"
+          @click="isLoginForm = false"
         >
           Sign up
         </button>
@@ -28,10 +28,10 @@
 
       <div class="auth-content">
         <h2 class="auth-title">
-          {{ isLogin ? "Welcome back" : "Create Your Account" }}
+          {{ isLoginForm ? "Welcome back" : "Create Your Account" }}
         </h2>
 
-        <LoginForm v-if="isLogin" @close="closeModal('AuthForm')" />
+        <LoginForm v-if="isLoginForm" @close="closeModal('AuthForm')" />
         <RegisterForm v-else @close="closeModal('AuthForm')" />
       </div>
     </div>
@@ -46,7 +46,7 @@ import RegisterForm from "@/components/molecules/Auth/RegisterForm.vue";
 
 const { closeModal } = useModalStore();
 
-const isLogin = ref(false);
+const isLoginForm = ref(true);
 </script>
 
 <style lang="scss">

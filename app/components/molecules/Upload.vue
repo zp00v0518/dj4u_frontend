@@ -89,6 +89,7 @@
 
 <script setup lang="ts">
 import { ElUpload, ElMessage } from "element-plus";
+import File from "../../api/File";
 
 const currentState = ref("initial");
 const fileList = ref([]);
@@ -107,9 +108,11 @@ function handleExceed(files, uploadFiles) {
   });
 }
 
-function createMix() {
+async function createMix() {
   const formData = new FormData();
-  fileList.valueEquals.forEach((i) => formData.append("files", i));
+  fileList.value.forEach((i) => formData.append("files", i));
+  const response = await File.fileUploadToServer(formData);
+  console.log(response);
 }
 </script>
 

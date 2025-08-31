@@ -12,7 +12,7 @@ class User extends API {
 
   async getProfile() {
     const response = await this.post("/profile");
-    return response?.data?.data;
+    return response?.data;
   }
 }
 

@@ -30,11 +30,10 @@ async function madeDevAction(){
   const { registration } = useProfileStore();
       const data = await registration({
         fullName: 'adasd sdfsdf sdfsf',
-        email: 'd222fh4q@gmail.com',
+        email: 'd222fdfh47dq@gmail.com',
         password: '111111',
         passwordConfirm: '111111'
       });
-      console.log(data)
 }
 
 const route = useRoute();

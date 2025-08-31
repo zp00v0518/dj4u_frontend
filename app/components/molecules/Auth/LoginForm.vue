@@ -71,8 +71,12 @@ const submitForm = async () => {
   const { valid } = await validate();
   if (valid) {
     const data = await loginUser(formData);
-    console.log(data);
-    // emit("close");
+    if (data.status) {
+      emit("close");
+      return;
+    } else {
+      console.log(data)
+    }
   } else {
     console.log("Form has validation errors.");
     console.log("Validation errors:", errors.value);

@@ -6,6 +6,7 @@
 
         <el-upload
           v-model:file-list="fileList"
+          accept="audio/mpeg"
           class="drag-and-drop-area"
           multiple
           drag
@@ -13,7 +14,6 @@
           :limit="5"
           :on-change="handleChangeUpload"
           :on-exceed="handleExceed"
-          accept="audio/mpeg"
         >
           <div class="el-upload__text">
             <p class="drag-and-drop-text">
@@ -109,8 +109,9 @@ function handleExceed(files, uploadFiles) {
 }
 
 async function createMix() {
+  // TODO: треба перевірка на логін
   const formData = new FormData();
-  fileList.value.forEach((i) => formData.append("files", i));
+  fileList.value.forEach((i) => formData.append("files", i.raw));
   const response = await File.fileUploadToServer(formData);
   console.log(response);
 }

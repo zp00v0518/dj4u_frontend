@@ -8,9 +8,14 @@ class API {
 
   async sendRequest(path = "", params? = {}) {
     let response = {};
-    const url = this.baseUrl ? this.baseUrl + path : path;
+    let url = "";
+    if (path.includes("http")) {
+      url = path;
+    } else {
+      url = this.baseUrl ? this.baseUrl + path : path;
+    }
     try {
-      const config = Object.assign({ url, withCredentials: true, }, params);
+      const config = Object.assign({ url, withCredentials: true }, params);
       response = await axios.request(config);
     } catch (error) {
       console.error("Error sending request:", error);

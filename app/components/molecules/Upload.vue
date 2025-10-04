@@ -113,7 +113,19 @@ async function createMix() {
   const formData = new FormData();
   fileList.value.forEach((i) => formData.append("files", i.raw));
   const response = await File.fileUploadToServer(formData);
-  console.log(response);
+  if (!response?.data?.status) {
+    console.log("шось пішло не так");
+    return;
+  }
+  const { data } = response;
+  const downloadUrl = `/api/file/download/${data.fileName}`;
+  const link = document.createElement("a");
+  link.href = downloadUrl;
+  link.setAttribute("download", data.fileName);
+  document.body.appendChild(link);
+  link.click();
+  console.log(link)
+  document.body.removeChild(link);
 }
 </script>
 

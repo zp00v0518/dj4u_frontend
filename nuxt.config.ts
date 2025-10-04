@@ -8,7 +8,13 @@ const { resolve } = createResolver(dirname(fileURLToPath(import.meta.url)));
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@pinia/nuxt", "@nuxt/eslint", "@nuxt/image", "@vueuse/nuxt",  '@element-plus/nuxt',],
+  modules: [
+    "@pinia/nuxt",
+    "@nuxt/eslint",
+    "@nuxt/image",
+    "@vueuse/nuxt",
+    "@element-plus/nuxt",
+  ],
   css: [
     "@/assets/styles/index.scss",
     "vue-final-modal/style.css",
@@ -52,11 +58,20 @@ export default defineNuxtConfig({
         },
       },
     },
-  },
-  proxy: {
-    "/api": {
-      changeOrigin: true,
-      target: "http://localhost:4000",
+    server: {
+      proxy: {
+        // Налаштування, яке було у вас
+        "/api": {
+          target: "http://localhost:4000",
+          changeOrigin: true,
+        },
+      },
     },
   },
+  // proxy: {
+  //   "/api/": {
+  //     changeOrigin: true,
+  //     target: "http://localhost:4000",
+  //   },
+  // },
 });

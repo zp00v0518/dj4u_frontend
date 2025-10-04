@@ -1,10 +1,17 @@
 <template>
-  <atomic-button
+  <!-- <atomic-button
     v-if="isDev"
     label="click"
     :style="{ position: 'fixed', cursor: 'pointer', zIndex: 99999 }"
     @click="madeDevAction"
-  ></atomic-button>
+  ></atomic-button> -->
+
+  <a
+    href="/api/file/download/mix_1759586932336.wav"
+    download
+    :style="{ position: 'fixed', cursor: 'pointer', zIndex: 99999 }"
+    >Load</a
+  >
   <organism-header />
   <main class="main">
     <NuxtPage />
@@ -26,14 +33,14 @@ onMounted(() => {
   checkLogin();
 });
 
-async function madeDevAction(){
+async function madeDevAction() {
   const { registration } = useProfileStore();
-      const data = await registration({
-        fullName: 'adasd sdfsdf sdfsf',
-        email: 'd222fdfh47dq@gmail.com',
-        password: '111111',
-        passwordConfirm: '111111'
-      });
+  const data = await registration({
+    fullName: "adasd sdfsdf sdfsf",
+    email: "d222fdfh47dq@gmail.com",
+    password: "111111",
+    passwordConfirm: "111111",
+  });
 }
 
 const route = useRoute();

@@ -1,17 +1,11 @@
 <template>
-  <!-- <atomic-button
+  <atomic-button
     v-if="isDev"
     label="click"
     :style="{ position: 'fixed', cursor: 'pointer', zIndex: 99999 }"
     @click="madeDevAction"
-  ></atomic-button> -->
+  ></atomic-button>
 
-  <a
-    href="/api/file/download/mix_1759586932336.wav"
-    download
-    :style="{ position: 'fixed', cursor: 'pointer', zIndex: 99999 }"
-    >Load</a
-  >
   <organism-header />
   <main class="main">
     <NuxtPage />

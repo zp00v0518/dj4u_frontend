@@ -73,7 +73,10 @@
       <div class="card-actions">
         <atomic-button
           label="Create my Mix"
-          :is-disabled="currentState !== 'uploaded' && fileList.length === 0"
+          :is-disabled="
+            (currentState !== 'uploaded' && fileList.length === 0) ||
+            currentState === 'mixing'
+          "
           :type="currentState === 'uploaded' ? 'white' : ''"
           @click="createMix"
         />
@@ -125,11 +128,14 @@ Files uploaded. The mix is ​​being created </br>
 This may take <strong>1-4 minutes</strong>.
 `,
   });
+  currentState.value = "mixing";
   const response = await File.fileUploadToServer(formData);
+  currentState.value = "initial";
   if (!response?.data?.status) {
     console.log("шось пішло не так");
     return;
   }
+  fileList.value = [];
   const { data } = response;
   const downloadUrl = `/api/file/download/${data.fileName}`;
   const link = document.createElement("a");

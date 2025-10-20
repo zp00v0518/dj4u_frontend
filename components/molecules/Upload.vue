@@ -112,6 +112,19 @@ async function createMix() {
   // TODO: треба перевірка на логін
   const formData = new FormData();
   fileList.value.forEach((i) => formData.append("files", i.raw));
+  ElMessage({
+    duration: 1000 * 10,
+    type: "warning",
+    plain: true,
+    showClose: true,
+    dangerouslyUseHTMLString: true,
+    customClass: "upload__notify__wait",
+    message: `
+    Please wait. Do not close the browser window.</br>
+Files uploaded. The mix is ​​being created </br>
+This may take <strong>1-4 minutes</strong>.
+`,
+  });
   const response = await File.fileUploadToServer(formData);
   if (!response?.data?.status) {
     console.log("шось пішло не так");
@@ -124,11 +137,24 @@ async function createMix() {
   link.setAttribute("download", data.fileName);
   document.body.appendChild(link);
   link.click();
-  console.log(link)
+  console.log(link);
   document.body.removeChild(link);
 }
 </script>
 
+<style lang="scss">
+.upload__notify__wait {
+  &.el-message--warning {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border: none;
+    .el-message__content {
+      line-height: 125%;
+      font-size: 0.8rem;
+    }
+  }
+}
+</style>
 <style lang="scss" scoped>
 .upload-section {
   display: flex;

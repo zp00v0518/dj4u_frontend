@@ -1,0 +1,35 @@
+.subscription-body {
+  margin-bottom: 50px;
+}
+
+.details {
+  margin-bottom: 64px;
+  line-height: 1.5;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 132.562%; /* 26.512px */
+}
+
+.detail-item {
+  color: var(--txt-primary-color);
+
+  &:first-child {
+    margin-bottom: 12px;
+  }
+}
+
+.detail-label {
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.limit-message {
+  color: var(--txt-secondary-color);
+  margin-bottom: 12px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}

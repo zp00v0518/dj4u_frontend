@@ -7,7 +7,7 @@ import ElementPlus from "unplugin-element-plus/vite";
 const { resolve } = createResolver(dirname(fileURLToPath(import.meta.url)));
 
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   modules: [
     "@pinia/nuxt",
     "@nuxt/eslint",
@@ -22,7 +22,7 @@ export default defineNuxtConfig({
     // "@/node_modules/vue-skeletor/dist/vue-skeletor.css",
   ],
   alias: {
-    "@": resolve("./app"),
+    // "@": resolve("./app"),
   },
   app: {
     head: {
@@ -37,11 +37,11 @@ export default defineNuxtConfig({
           rel: "preconnect",
           href: "https://fonts.googleapis.com",
         },
-        {
-          rel: "preconnect",
-          href: "https://fonts.gstatic.com",
-          crossorigin: "",
-        },
+        // {
+        //   rel: "preconnect",
+        //   href: "https://fonts.gstatic.com",
+        //   crossorigin: "",
+        // },
         {
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css2?family=Martian+Mono&family=Roboto:wght@400;700&family=Rock+Salt&display=swap",
@@ -68,10 +68,4 @@ export default defineNuxtConfig({
       },
     },
   },
-  // proxy: {
-  //   "/api/": {
-  //     changeOrigin: true,
-  //     target: "http://localhost:4000",
-  //   },
-  // },
 });

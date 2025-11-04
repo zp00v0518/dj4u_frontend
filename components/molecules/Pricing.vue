@@ -1,6 +1,7 @@
 <template>
   <div class="descr-second">
     <NuxtImg
+      class="descr-second__img"
       src="img/description_2_bg.png"
       format="webp"
       alt="description_2_bg.png"
@@ -47,9 +48,13 @@ const typeBusines = [
 .descr-second {
   margin-left: calc(0px - var(--padding-side-main));
   position: relative;
+  
+  &__img{
+    max-width: calc(100% + calc(var(--padding-side-main)));
 
+  }
   .content {
-    padding: 41px 38px 38px 46px;
+    padding: 41px var(--padding-side-main) var(--padding-side-main) 46px;
     position: absolute;
     width: calc(100% + var(--padding-side-main));
     height: 100%;

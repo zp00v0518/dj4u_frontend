@@ -53,6 +53,10 @@ body {
 #__nuxt {
   max-width: var(--app-max-width);
   margin: 0 auto;
+  @media (max-width: 1280px){
+    max-width: 100dvh;
+    // overflow-x: hidden;
+  }
 }
 .txt-dance {
   color: var(--txt-accent-color);

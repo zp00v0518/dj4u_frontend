@@ -108,6 +108,7 @@ const whyList = [
     margin: 0 -24px;
     background-size: 100%;
     background-position: center 50px;
+    padding-bottom: 100px;
 
     .header {
       display: block;

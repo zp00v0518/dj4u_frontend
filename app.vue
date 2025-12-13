@@ -10,7 +10,7 @@
   <main class="main">
     <NuxtPage />
   </main>
-  <organism-footer />
+  <!-- <organism-footer /> -->
   <ModalsContainer />
 </template>
 
@@ -57,5 +57,6 @@ watch(
 <style lang="scss" scoped>
 .main {
   padding: 0px var(--padding-side-main);
+  overflow-x: hidden;
 }
 </style>

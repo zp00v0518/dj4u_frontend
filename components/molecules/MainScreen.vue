@@ -34,9 +34,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss" scoped>
 .main-screen {
@@ -96,6 +94,37 @@
       max-width: 288px;
       display: block;
       text-align: start;
+    }
+  }
+
+  @media (orientation: portrait) and (max-width: 768px) {
+    .image {
+      width: 95%;
+      margin-left: -22%;
+
+      &:last-of-type {
+        width: 95%;
+      }
+    }
+
+    .txt-content {
+      &--large {
+        font-size: 41px;
+
+        &:first-child {
+          margin-right: 0;
+        }
+      }
+      .description {
+        display: none;
+      }
+    }
+
+    @media (max-width: 528px) {
+      .image {
+        width: 95%;
+        margin-left: -47%;
+      }
     }
   }
 }

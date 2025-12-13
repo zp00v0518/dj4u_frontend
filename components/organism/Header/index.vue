@@ -83,7 +83,7 @@ function closeMenu() {
     }
   }
 
-  @media (orientation: portrait) and (max-width: 756px) {
+  @media (orientation: portrait) and (max-width: 768px) {
     .nav-links.desktop {
       display: none;
     }

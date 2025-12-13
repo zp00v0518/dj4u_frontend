@@ -51,11 +51,13 @@ const typeBusines = [
   
   &__img{
     max-width: calc(100% + calc(var(--padding-side-main)));
+    position: absolute;
+    z-index: -1;
 
   }
   .content {
     padding: 41px var(--padding-side-main) var(--padding-side-main) 46px;
-    position: absolute;
+    // position: absolute;
     width: calc(100% + var(--padding-side-main));
     height: 100%;
     top: 0;

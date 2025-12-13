@@ -1,10 +1,10 @@
 <template>
-  <atomic-button
+  <!-- <atomic-button
     v-if="isDev"
     label="click"
     :style="{ position: 'fixed', cursor: 'pointer', zIndex: 99999 }"
     @click="madeDevAction"
-  ></atomic-button>
+  ></atomic-button> -->
 
   <organism-header />
   <main class="main">

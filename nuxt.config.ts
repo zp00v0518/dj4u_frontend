@@ -29,7 +29,7 @@ export default defineNuxtConfig({
       title: "DJ4U",
       meta: [
         { charset: "utf-8" },
-        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        // { name: "viewport", content: "width=device-width, initial-scale=1" },
         { name: "format-detection", content: "telephone=no" },
       ],
       link: [
@@ -60,7 +60,6 @@ export default defineNuxtConfig({
     },
     server: {
       proxy: {
-        // Налаштування, яке було у вас
         "/api": {
           target: "http://localhost:4000",
           changeOrigin: true,

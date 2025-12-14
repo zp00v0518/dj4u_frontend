@@ -98,7 +98,15 @@
   }
 
   @media (orientation: portrait) and (max-width: 768px) {
+    margin-right: calc(0px - var(--padding-side-main));
+    margin-left: calc(0px - var(--padding-side-main));
+    background-image: url("img/main-banner.png"), url("img/second-banner.png");
+    background-repeat: no-repeat;
+    background-size: 65%, 55%;
+    background-position: -50% top, 120% bottom;
+    width: auto;
     .image {
+      display: none;
       width: 95%;
       margin-left: -22%;
 
@@ -121,10 +129,9 @@
     }
 
     @media (max-width: 528px) {
-      .image {
-        width: 95%;
-        margin-left: -47%;
-      }
+      background-size: 95%, 80%;
+      background-position: -500% top, 200% bottom;
+      width: auto;
     }
   }
 }

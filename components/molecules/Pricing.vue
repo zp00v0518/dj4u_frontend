@@ -97,6 +97,8 @@ const typeBusines = [
     background-repeat: no-repeat;
     background-size: 1247px auto;
     background-position: 75% top;
+    background-color: black;
+    padding-bottom: 80px;
 
     &__img {
       display: none;
@@ -107,7 +109,8 @@ const typeBusines = [
     }
 
     .content {
-      padding: 20px;
+      padding: 10px;
+      width: auto;
 
       .header {
         margin-bottom: 100px;
@@ -123,13 +126,18 @@ const typeBusines = [
       }
 
       .type-of-busines {
-        padding-right: var(--padding-side-main);
         text-align: end;
         margin-bottom: 165px;
       }
 
       .plans {
         flex-direction: column;
+        padding: 0 10px;
+        &:deep() {
+          .plans__item {
+            padding: 24px 40px 27px 40px;
+          }
+        }
       }
     }
   }

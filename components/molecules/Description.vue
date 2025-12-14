@@ -121,10 +121,11 @@ const whyList = [
       }
 
       &__subtitle {
-        width: 200px;
         left: unset;
-        transform: translateY(100%) translateX(-50%);
+        transform: translateY(100%) translateX(-55%);
         font-size: 16px;
+        padding-right: 10px;
+        white-space: nowrap;
       }
     }
 

@@ -1,6 +1,7 @@
 <template>
   <div class="descr-second">
     <NuxtImg
+      class="descr-second__img"
       src="img/description_2_bg.png"
       format="webp"
       alt="description_2_bg.png"

@@ -84,6 +84,8 @@ function closeMenu() {
   }
 
   @media (orientation: portrait) and (max-width: 768px) {
+    top: 0;
+    
     .nav-links.desktop {
       display: none;
     }
@@ -146,8 +148,7 @@ function closeMenu() {
 
   &__menu {
     position: fixed;
-    width: 70%;
-    max-width: 70dvw;
+    width: min(70%, 350px);
     height: 100dvh;
     left: 0;
     top: 0;

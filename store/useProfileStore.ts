@@ -16,7 +16,6 @@ export default defineStore("useProfileStore", {
     },
 
     setProfile(data) {
-      console.log(data);
       this.profile = data;
       this.isLogin = true;
     },

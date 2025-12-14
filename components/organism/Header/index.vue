@@ -51,6 +51,13 @@ const isHomePage = computed(() => {
   return route.path === "/";
 });
 
+watch(
+  () => route.fullPath,
+  () => {
+    if (isShowMenu.value) closeMenu();
+  },
+);
+
 const { openModal } = useModalStore();
 
 async function goToAProfile() {
@@ -85,12 +92,18 @@ function closeMenu() {
 
   @media (orientation: portrait) and (max-width: 768px) {
     top: 0;
-    
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    height: 60px;
+    padding-top: 0;
+
     .nav-links.desktop {
       display: none;
     }
     .header--mob {
       display: flex;
+              width: 100%;
     }
   }
 }
@@ -154,6 +167,8 @@ function closeMenu() {
     top: 0;
     transform: translateX(-100%);
     transition-duration: 0.2s;
+    // background-color: var(--bg-color);
+    background-color:rgba(19, 19, 19, 0.8);
 
     &.show {
       transform: translateX(0%);

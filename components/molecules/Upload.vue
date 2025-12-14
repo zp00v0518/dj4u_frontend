@@ -188,6 +188,13 @@ This may take <strong>1-4 minutes</strong>.
     .drag-and-drop-text {
       padding: 35px 0;
     }
+
+    .card-actions {
+      --btn-width: min(70%, 250px);
+      flex-direction: column;
+      align-items: center;
+      font-size: 20px;
+    }
   }
 }
 

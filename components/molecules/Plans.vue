@@ -62,7 +62,7 @@ const plans = [
     }
   }
 
-  @media (orientation: portrait) and (max-width: 768px) {
+  @media (orientation: portrait) and (max-width: 968px) {
     flex-direction: column;
     padding: 0 10px;
     &:deep() {

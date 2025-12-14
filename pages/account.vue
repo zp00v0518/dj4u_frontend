@@ -126,5 +126,36 @@ onMounted(() => {
       }
     }
   }
+
+  @media (orientation: portrait) and (max-width: 768px) {
+    --account-padding-side: 20px;
+    margin-left: -10px;
+    margin-right: -10px;
+
+    &__main {
+      height: auto;
+    }
+    &__greeting {
+      font-size: 24px;
+    }
+
+    .account__mix {
+      margin-top: 50px;
+      &__top {
+        flex-direction: column;
+        gap: max(70px, 10%);
+      }
+
+      &__bottom {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      &__description {
+        margin-top: 30px;
+        font-size: 24px;
+      }
+    }
+  }
 }
 </style>

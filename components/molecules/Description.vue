@@ -103,5 +103,37 @@ const whyList = [
       --btn-width: min(260px, 80%);
     }
   }
+
+  @media (orientation: portrait) and (max-width: 768px) {
+    margin: 0 calc(0px - var(--padding-side-main));
+    background-size: 100%;
+    background-position: center 50px;
+    padding-bottom: 100px;
+
+    .header {
+      display: block;
+      text-align: center;
+      margin-bottom: 300px;
+
+      &__title {
+        font-size: 28px;
+        display: inline;
+      }
+
+      &__subtitle {
+        left: unset;
+        transform: translateY(100%) translateX(-55%);
+        font-size: 16px;
+        padding-right: 10px;
+        white-space: nowrap;
+      }
+    }
+
+    .content {
+      .app-btn {
+        font-size: 20px;
+      }
+    }
+  }
 }
 </style>

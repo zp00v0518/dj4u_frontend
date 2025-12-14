@@ -40,6 +40,7 @@ const props = withDefaults(
   color: var(--txt-primary-color);
   cursor: pointer;
   backdrop-filter: blur(5px);
+  font-size: inherit;
 
   &:disabled {
     color: var(--txt-secondary-color);

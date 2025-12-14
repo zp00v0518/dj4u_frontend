@@ -1,10 +1,10 @@
 <template>
-  <atomic-button
+  <!-- <atomic-button
     v-if="isDev"
     label="click"
     :style="{ position: 'fixed', cursor: 'pointer', zIndex: 99999 }"
     @click="madeDevAction"
-  ></atomic-button>
+  ></atomic-button> -->
 
   <organism-header />
   <main class="main">
@@ -57,5 +57,6 @@ watch(
 <style lang="scss" scoped>
 .main {
   padding: 0px var(--padding-side-main);
+  // overflow-x: hidden;
 }
 </style>

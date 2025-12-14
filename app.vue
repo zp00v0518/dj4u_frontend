@@ -57,6 +57,6 @@ watch(
 <style lang="scss" scoped>
 .main {
   padding: 0px var(--padding-side-main);
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }
 </style>

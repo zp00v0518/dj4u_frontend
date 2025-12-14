@@ -48,13 +48,13 @@ const typeBusines = [
 .descr-second {
   margin-left: calc(0px - var(--padding-side-main));
   position: relative;
-  
-  &__img{
+
+  &__img {
     max-width: calc(100% + calc(var(--padding-side-main)));
     position: absolute;
     z-index: -1;
-
   }
+
   .content {
     padding: 41px var(--padding-side-main) var(--padding-side-main) 46px;
     // position: absolute;
@@ -88,6 +88,49 @@ const typeBusines = [
     .type-of-busines {
       color: var(--txt-secondary-color);
       margin-bottom: max(40px, 12.7%);
+    }
+  }
+
+  @media (orientation: portrait) and (max-width: 768px) {
+    margin-right: calc(0px - var(--padding-side-main));
+    background-image: url("/img/description_2_bg.png");
+    background-repeat: no-repeat;
+    background-size: 1247px auto;
+    background-position: 75% top;
+
+    &__img {
+      display: none;
+      max-width: unset;
+      left: 0;
+      top: 0;
+      transform: translateX(-50%);
+    }
+
+    .content {
+      padding: 20px;
+
+      .header {
+        margin-bottom: 100px;
+        &__title {
+          text-align: center;
+          .txt-dance {
+            right: 0;
+          }
+        }
+        .copyright {
+          display: none;
+        }
+      }
+
+      .type-of-busines {
+        padding-right: var(--padding-side-main);
+        text-align: end;
+        margin-bottom: 165px;
+      }
+
+      .plans {
+        flex-direction: column;
+      }
     }
   }
 }

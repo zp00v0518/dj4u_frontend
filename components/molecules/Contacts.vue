@@ -21,6 +21,19 @@
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 36px;
+
+  @media (orientation: portrait) and (max-width: 768px) {
+    flex-direction: column;
+    align-items: start;
+
+    .contact-info {
+      margin-bottom: 150px;
+    }
+
+    .slogan-text {
+      font-size: 26px;
+    }
+  }
 }
 
 .contact-info {

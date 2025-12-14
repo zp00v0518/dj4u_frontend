@@ -1,6 +1,6 @@
 <template>
   <header class="header" :class="{ 'home-page': isHomePage }">
-    <nav class="nav-links">
+    <nav class="nav-links desktop">
       <NuxtLink v-if="isHomePage" @click="goToAProfile">My account</NuxtLink>
 
       <div class="nav-links__menu">
@@ -15,6 +15,24 @@
         >Try for free</NuxtLink
       >
     </nav>
+    <div class="header--mob">
+      <div class="gamburger" @click="openMenu"></div>
+      <NuxtLink v-if="isHomePage" @click="goToAProfile">My account</NuxtLink>
+      <div class="header--mob__menu" :class="{ show: isShowMenu }">
+        <atomic-icon id="close" @click="closeMenu"></atomic-icon>
+        <nav class="nav-links">
+          <NuxtLink
+            v-for="menuItem in menu"
+            :key="menuItem.path"
+            :to="menuItem.path"
+            >{{ menuItem.label }}</NuxtLink
+          >
+          <NuxtLink v-if="isHomePage" class="nav-links__free" to="/#try-free"
+            >Try for free</NuxtLink
+          >
+        </nav>
+      </div>
+    </div>
   </header>
 </template>
 
@@ -33,10 +51,27 @@ const isHomePage = computed(() => {
   return route.path === "/";
 });
 
+watch(
+  () => route.fullPath,
+  () => {
+    if (isShowMenu.value) closeMenu();
+  },
+);
+
 const { openModal } = useModalStore();
 
 async function goToAProfile() {
   isLogin.value ? await router.push("/account") : await openModal("AuthForm");
+}
+
+const isShowMenu = ref(false);
+
+function openMenu() {
+  isShowMenu.value = true;
+}
+
+function closeMenu() {
+  isShowMenu.value = false;
 }
 </script>
 
@@ -52,6 +87,23 @@ async function goToAProfile() {
   &:not(&.home-page) {
     .nav-links__menu {
       width: 100%;
+    }
+  }
+
+  @media (orientation: portrait) and (max-width: 768px) {
+    top: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    height: 60px;
+    padding-top: 0;
+
+    .nav-links.desktop {
+      display: none;
+    }
+    .header--mob {
+      display: flex;
+              width: 100%;
     }
   }
 }
@@ -87,6 +139,59 @@ async function goToAProfile() {
 
   a.nav-links__free {
     color: var(--txt-accent-color);
+  }
+}
+
+.header--mob {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 24px;
+  padding-right: 24px;
+  position: relative;
+
+  .gamburger {
+    width: 48px;
+    height: 14px;
+    border: 1px solid var(--txt-primary-color);
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+  }
+
+  &__menu {
+    position: fixed;
+    width: min(70%, 350px);
+    height: 100dvh;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    transition-duration: 0.2s;
+    // background-color: var(--bg-color);
+    background-color:rgba(19, 19, 19, 0.8);
+
+    &.show {
+      transform: translateX(0%);
+    }
+
+    .nav-links {
+      flex-direction: column;
+      border-radius: unset;
+      height: 100%;
+      justify-content: unset;
+      padding-top: 24px;
+
+      a {
+        margin-bottom: 24px;
+      }
+    }
+
+    .icon.close {
+      position: absolute;
+      z-index: 1;
+      top: 16px;
+      right: 16px;
+    }
   }
 }
 </style>

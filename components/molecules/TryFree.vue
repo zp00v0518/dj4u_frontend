@@ -13,6 +13,25 @@
   display: flex;
   justify-content: space-between;
   gap: 66px;
+
+  
+  @media (orientation: portrait) and (max-width: 768px) {
+    flex-direction: column;
+    gap: 46px;
+
+    .label {
+      text-align: center;
+    }
+
+    &:deep(){
+      .card-actions{
+        --btn-width: min(70%, 250px);
+        flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+      }
+    }
+  }
 }
 
 .label {

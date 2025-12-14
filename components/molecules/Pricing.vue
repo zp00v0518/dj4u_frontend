@@ -1,6 +1,7 @@
 <template>
   <div class="descr-second">
     <NuxtImg
+      class="descr-second__img"
       src="img/description_2_bg.png"
       format="webp"
       alt="description_2_bg.png"
@@ -48,9 +49,15 @@ const typeBusines = [
   margin-left: calc(0px - var(--padding-side-main));
   position: relative;
 
-  .content {
-    padding: 41px 38px 38px 46px;
+  &__img {
+    max-width: calc(100% + calc(var(--padding-side-main)));
     position: absolute;
+    z-index: -1;
+  }
+
+  .content {
+    padding: 41px var(--padding-side-main) var(--padding-side-main) 46px;
+    // position: absolute;
     width: calc(100% + var(--padding-side-main));
     height: 100%;
     top: 0;
@@ -81,6 +88,57 @@ const typeBusines = [
     .type-of-busines {
       color: var(--txt-secondary-color);
       margin-bottom: max(40px, 12.7%);
+    }
+  }
+
+  @media (orientation: portrait) and (max-width: 768px) {
+    margin-right: calc(0px - var(--padding-side-main));
+    background-image: url("/img/description_2_bg.png");
+    background-repeat: no-repeat;
+    background-size: 1247px auto;
+    background-position: 75% top;
+    background-color: black;
+    padding-bottom: 80px;
+
+    &__img {
+      display: none;
+      max-width: unset;
+      left: 0;
+      top: 0;
+      transform: translateX(-50%);
+    }
+
+    .content {
+      padding: 10px;
+      width: auto;
+
+      .header {
+        margin-bottom: 100px;
+        &__title {
+          text-align: center;
+          .txt-dance {
+            right: 0;
+          }
+        }
+        .copyright {
+          display: none;
+        }
+      }
+
+      .type-of-busines {
+        text-align: end;
+        margin-bottom: 165px;
+      }
+
+      .plans {
+        flex-direction: column;
+        padding: 0 10px;
+        &:deep() {
+          .plans__item {
+            padding: 24px 40px 27px 40px;
+          }
+        }
+      }
     }
   }
 }

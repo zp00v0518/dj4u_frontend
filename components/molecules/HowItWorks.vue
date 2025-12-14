@@ -40,7 +40,7 @@ const steps = [
 <style lang="scss" scoped>
 .hiw {
   margin-bottom: 124px;
-  
+
   &__title {
     text-align: center;
     position: relative;
@@ -83,6 +83,25 @@ const steps = [
       }
       &:nth-child(3) {
         align-self: center;
+      }
+    }
+  }
+
+  @media (orientation: portrait) and (max-width: 768px) {
+    &__subtitle {
+      left: unset;
+      right: 40px;
+    }
+
+    .steps {
+      flex-direction: column;
+      height: unset;
+      background-size: 176%;
+      background-position: -25%;
+
+      &__item {
+        width: 100%;
+        max-height: 245px;
       }
     }
   }

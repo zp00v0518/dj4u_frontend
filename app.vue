@@ -10,7 +10,7 @@
   <main class="main">
     <NuxtPage />
   </main>
-  <!-- <organism-footer /> -->
+  <organism-footer />
   <ModalsContainer />
 </template>
 

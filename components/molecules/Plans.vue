@@ -61,5 +61,15 @@ const plans = [
       justify-content: center;
     }
   }
+
+  @media (orientation: portrait) and (max-width: 768px) {
+    flex-direction: column;
+    padding: 0 10px;
+    &:deep() {
+      .plans__item {
+        padding: 24px 40px 27px 40px;
+      }
+    }
+  }
 }
 </style>

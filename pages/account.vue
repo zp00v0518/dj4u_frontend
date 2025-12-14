@@ -126,5 +126,16 @@ onMounted(() => {
       }
     }
   }
+
+  @media (orientation: portrait) and (max-width: 768px) {
+    --account-padding-side: 20px;
+    
+    &__main {
+      height: auto;
+    }
+    &__greeting {
+      font-size: 24px;
+    }
+  }
 }
 </style>

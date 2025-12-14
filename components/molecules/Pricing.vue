@@ -130,15 +130,15 @@ const typeBusines = [
         margin-bottom: 165px;
       }
 
-      .plans {
-        flex-direction: column;
-        padding: 0 10px;
-        &:deep() {
-          .plans__item {
-            padding: 24px 40px 27px 40px;
-          }
-        }
-      }
+      // .plans {
+      //   flex-direction: column;
+      //   padding: 0 10px;
+      //   &:deep() {
+      //     .plans__item {
+      //       padding: 24px 40px 27px 40px;
+      //     }
+      //   }
+      // }
     }
   }
 }

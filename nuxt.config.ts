@@ -21,9 +21,9 @@ export default defineNuxtConfig({
     // "@/node_modules/vue-final-modal/dist/style.css",
     // "@/node_modules/vue-skeletor/dist/vue-skeletor.css",
   ],
-  alias: {
-    // "@": resolve("./app"),
-  },
+  // alias: {
+  //   "@": resolve("./app"),
+  // },
   app: {
     head: {
       title: "DJ4U",
